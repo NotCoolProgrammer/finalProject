@@ -1,0 +1,312 @@
+.categories {
+  margin-top: 60px;
+  align-items: center;
+  height: 60px;
+  color: #222222;
+  font-family: Lato;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.categories__left {
+  width: 545px;
+}
+
+.categories__right {
+  width: 595px;
+}
+
+.categories__right p {
+  width: 20%;
+  text-align: center;
+}
+
+.cart__product__notes {
+  align-items: center;
+  padding-top: 30px;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 20px;
+}
+
+.cart__product__notes .unique__cart {
+  width: 545px;
+}
+
+.cart__product__notes .unique__cart .cart__img {
+  align-items: center;
+  height: 100%;
+  transition: transform 1s;
+}
+
+.cart__product__notes .unique__cart .cart__img img {
+  width: 100px;
+  height: 115px;
+}
+
+.cart__product__notes .unique__cart .cart__img:hover {
+  transform: scale(1.1);
+}
+
+.cart__product__notes .unique__cart .cart__img .cart_desc {
+  padding-top: 10px;
+}
+
+.cart__product__notes .unique__cart .cart__img .cart_desc .product__name {
+  text-transform: uppercase;
+}
+
+.cart__product__notes .unique__cart .cart__img .cart_desc p {
+  color: #000;
+  max-width: 360px;
+  padding-left: 20px;
+}
+
+.cart__product__notes .unique__cart .cart__img .cart_desc .color {
+  color: #000000;
+  padding-top: 30px;
+}
+
+.cart__product__notes .unique__cart .cart__img .cart_desc .color .span_grey {
+  color: #575757;
+  font-weight: 300;
+}
+
+.cart__product__notes .product__details {
+  width: 595px;
+}
+
+.cart__product__notes .product__details__price {
+  justify-content: center;
+  align-items: center;
+}
+
+.cart__product__notes .product__details .subtotal__product__currency,
+.cart__product__notes .product__details .subtotal__product__value,
+.cart__product__notes .product__details .product__count,
+.cart__product__notes .product__details .product__delivery,
+.cart__product__notes .product__details .product__details__price {
+  font-size: 17px;
+}
+
+.cart__product__notes .product__details .product__details__price,
+.cart__product__notes .product__details .product__count,
+.cart__product__notes .product__details .product__delivery,
+.cart__product__notes .product__details .delete__product,
+.cart__product__notes .product__details .subtotal__product__details__price {
+  width: 20%;
+  text-align: center;
+}
+
+.cart__product__notes .product__details .delete__product {
+  color: #c0c0c0;
+}
+
+.cart__product__notes .product__details .delete__product i {
+  font-size: 20px;
+  transition: color 0.8s, transform 0.6s;
+}
+
+.cart__product__notes .product__details .delete__product i:hover {
+  cursor: pointer;
+  color: #f16d7f;
+  transform: scale(1.5);
+}
+
+.control__button {
+  justify-content: space-between;
+  margin-top: 44px;
+}
+
+.control__button__left {
+  width: 225px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #eaeaea;
+  background-color: #fff;
+  text-decoration: none;
+  color: #4a4a4a;
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background-color 1s, color 1.5s;
+}
+
+.control__button__left:hover {
+  background-color: #262626;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.control__button__left:focus {
+  outline: none;
+}
+
+.form {
+  height: 370px;
+  margin-top: 95px;
+}
+
+.form__all {
+  justify-content: space-between;
+}
+
+.form__all .form__1 {
+  flex-direction: column;
+  border: 1px solid #cdcdcd;
+  padding: 20px;
+}
+
+.form__all .form__1 .coupon {
+  outline: none;
+  width: 333px;
+  height: 45px;
+  border: 1px solid #eaeaea;
+  background-color: #ffffff;
+  margin: 10px 0;
+  padding: 0 10px;
+  color: #222222;
+  font-family: Lato;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.form__all .form__1 .coupon:hover {
+  border: 1px solid #9399a3;
+}
+
+.form__all .form__1 .description {
+  display: block;
+  padding: 10px 0px 20px;
+}
+
+.form__all .form__1 .empty__field,
+.form__all .form__1 .warning__coupon,
+.form__all .form__1 .dublicate__coupon,
+.form__all .form__1 .delete__coupon__text,
+.form__all .form__1 .apply__coupon__text,
+.form__all .form__1 .no__products__in__the__cart {
+  display: none;
+  margin: 0;
+  color: red;
+}
+
+.form__all .form__1 .buttons {
+  justify-content: space-between;
+}
+
+.form__all .form__1 .buttons .apply__coupon, .form__all .form__1 .buttons .delete__coupon {
+  background-color: #fff;
+  width: 100px;
+  height: 35px;
+  color: #222222;
+  font-family: Lato;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid #eaeaea;
+  margin-top: 15px;
+  transition: background-color 1s, color 1.5s;
+}
+
+.form__all .form__1 .buttons .apply__coupon:hover, .form__all .form__1 .buttons .delete__coupon:hover {
+  background-color: #262626;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.form__all .form__1 .buttons .apply__coupon:focus, .form__all .form__1 .buttons .delete__coupon:focus {
+  outline: none;
+}
+
+.form__all .form__1__header {
+  color: #222222;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+
+.form__all .form__2 {
+  width: 360px;
+  height: 232px;
+  background-color: #f5f3f3;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form__all .form__2__header1 {
+  padding-left: 80px;
+  padding-bottom: 10px;
+  line-height: 2;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.form__all .form__2__header1 .sub {
+  color: #4a4a4a;
+  font-family: Lato;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-left: 65px;
+}
+
+.form__all .form__2__header1 .grand,
+.form__all .form__2__header1 .total__product__currency__withoutDiscount,
+.form__all .form__2__header1 .total__product__value__withoutDiscount,
+.form__all .form__2__header1 .total__product__currency__withDiscount,
+.form__all .form__2__header1 .total__product__value__withDiscount {
+  color: #222222;
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.form__all .form__2__header1 .amount__without__discount, .form__all .form__2__header1 .amount__with__discount, .form__all .form__2__header1 .grand {
+  padding: 0 5px;
+}
+
+.form__all .form__2__header1 .amount__without__discount span, .form__all .form__2__header1 .amount__with__discount span, .form__all .form__2__header1 .grand span {
+  color: #f16d7f;
+}
+
+.form__all .form__2__header1 .amount__without__discount .total__product__currency, .form__all .form__2__header1 .amount__with__discount .total__product__currency, .form__all .form__2__header1 .grand .total__product__currency {
+  padding-left: 8px;
+}
+
+.form__all .form__2__header1 .amount__without__discount .total__product__value, .form__all .form__2__header1 .amount__with__discount .total__product__value, .form__all .form__2__header1 .grand .total__product__value {
+  padding-left: 2px;
+}
+
+.form__all .form__2__header1 .amount__with__discount {
+  display: none;
+}
+
+.form__all .form__2 .checkout {
+  align-items: center;
+  justify-content: center;
+  width: 273px;
+  height: 50px;
+  background-color: #f16d7f;
+  color: #ffffff;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  margin: 40px 20px 20px 20px;
+  transition: color 0.8s, box-shadow 0.5s;
+}
+
+.form__all .form__2 .checkout:hover {
+  color: #222222;
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+}
+/*# sourceMappingURL=shoppingCart.css.map */

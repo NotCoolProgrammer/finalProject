@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../HTML/adminPage/adminPage.sass"
+    ],
+    "names": [],
+    "file": "adminPage.css"
+}

@@ -1,0 +1,227 @@
+$accent-color: #f16d7f
+$color-text: #222222
+
+// ---------------------------------------------------------------------------------------------------------
+
+.categories
+    margin-top: 60px
+    align-items: center
+    height: 60px
+    color: $color-text
+    font-family: Lato
+    font-size: 15px
+    font-weight: 700
+    line-height: 20px
+    text-transform: uppercase
+    border-bottom: 1px solid #eaeaea
+    &__left
+        width: 545px
+    &__right
+        width: 595px
+        & p
+            width: 20%
+            text-align: center
+
+// ---------------------------------------------------------------------------------------------------------
+.cart__product__notes
+    align-items: center
+    padding-top: 30px
+    border-bottom: 1px solid #eaeaea
+    padding-bottom: 20px
+    .unique__cart
+        width: 545px
+        .cart__img
+            align-items: center
+            height: 100%
+            transition: transform 1s
+            & img
+                width: 100px
+                height: 115px
+            &:hover
+                transform: scale(1.1)
+            .cart_desc
+                padding-top: 10px
+                .product__name
+                    text-transform: uppercase
+                p
+                    color: #000
+                    max-width: 360px
+                    padding-left: 20px
+                .color
+                    color: #000000
+                    padding-top: 30px
+                    .span_grey
+                        color: #575757
+                        font-weight: 300
+    .product__details
+        width: 595px
+        &__price
+            justify-content: center
+            align-items: center
+        .subtotal__product__currency,
+        .subtotal__product__value, 
+        .product__count, 
+        .product__delivery, 
+        .product__details__price
+            font-size: 17px
+        .product__details__price,
+        .product__count,
+        .product__delivery,
+        .delete__product,
+        .subtotal__product__details__price
+            width: 20%
+            text-align: center
+        .delete__product
+            color: #c0c0c0
+            & i
+                font-size: 20px
+                transition: color 0.8s, transform 0.6s
+                &:hover
+                    cursor: pointer
+                    color: $accent-color
+                    transform: scale(1.5)
+.control__button
+    justify-content: space-between
+    margin-top: 44px
+    &__left
+        width: 225px
+        height: 50px
+        justify-content: center
+        align-items: center
+        border: 1px solid #eaeaea
+        background-color: #fff
+        text-decoration: none
+        color: #4a4a4a
+        font-family: Lato
+        font-size: 14px
+        font-weight: 700
+        text-transform: uppercase
+        transition: background-color 1s, color 1.5s
+        &:hover
+            background-color: #262626
+            color: #ffffff
+            cursor: pointer
+        &:focus
+            outline: none
+
+
+// ---------------------------------------------------------------------------------------------------------
+
+.form
+    height: 370px
+    margin-top: 95px
+    &__all
+        justify-content: space-between
+        .form__1
+            flex-direction: column
+            border: 1px solid #cdcdcd
+            padding: 20px
+            .coupon
+                outline: none
+                width: 333px
+                height: 45px
+                border: 1px solid #eaeaea
+                background-color: #ffffff
+                margin: 10px 0
+                padding: 0 10px
+                color: $color-text
+                font-family: Lato
+                font-size: 13px
+                font-weight: 500
+                &:hover
+                    border: 1px solid #9399a3
+            .description
+                display: block
+                padding: 10px 0px 20px
+            .empty__field, 
+            .warning__coupon, 
+            .dublicate__coupon, 
+            .delete__coupon__text, 
+            .apply__coupon__text,
+            .no__products__in__the__cart
+                display: none
+                margin: 0
+                color: red
+            .buttons
+                justify-content: space-between
+                .apply__coupon, .delete__coupon
+                    background-color: #fff
+                    width: 100px
+                    height: 35px
+                    color: $color-text
+                    font-family: Lato
+                    font-size: 11px
+                    font-weight: 700
+                    text-transform: uppercase
+                    border: 1px solid #eaeaea
+                    margin-top: 15px
+                    transition: background-color 1s, color 1.5s
+                    &:hover
+                        background-color: #262626
+                        color: #ffffff
+                        cursor: pointer
+                    &:focus
+                        outline: none
+            &__header
+                color: $color-text
+                font-family: Lato
+                font-size: 16px
+                font-weight: 700
+                text-transform: uppercase
+                padding-bottom: 5px
+        .form__2
+            width: 360px
+            height: 232px
+            background-color: #f5f3f3
+            justify-content: center
+            align-items: center
+            flex-direction: column
+            &__header1
+                padding-left: 80px
+                padding-bottom: 10px
+                line-height: 2
+                border-bottom: 1px solid #eaeaea
+                .sub
+                    color: #4a4a4a
+                    font-family: Lato
+                    font-size: 11px
+                    font-weight: 400
+                    text-transform: uppercase
+                    padding-left: 65px
+                .grand, 
+                .total__product__currency__withoutDiscount, 
+                .total__product__value__withoutDiscount,
+                .total__product__currency__withDiscount,
+                .total__product__value__withDiscount
+                    color: $color-text
+                    font-family: Lato
+                    font-size: 18px
+                    font-weight: 700
+                    text-transform: uppercase
+                .amount__without__discount, .amount__with__discount, .grand
+                    padding: 0 5px
+                    & span
+                        color: $accent-color
+                    .total__product__currency
+                        padding-left: 8px
+                    .total__product__value
+                        padding-left: 2px
+                .amount__with__discount
+                    display: none
+            .checkout
+                align-items: center
+                justify-content: center
+                width: 273px
+                height: 50px
+                background-color: $accent-color
+                color: #ffffff
+                font-family: Lato
+                font-size: 16px
+                font-weight: 700
+                text-transform: uppercase
+                border: none
+                margin: 40px 20px 20px 20px
+                transition: color 0.8s, box-shadow 0.5s
+                &:hover
+                    color: $color-text
+                    box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16)

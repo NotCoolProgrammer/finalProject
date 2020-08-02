@@ -1,0 +1,297 @@
+.categories {
+  margin-top: 60px;
+  align-items: center;
+  height: 60px;
+  color: #222222;
+  font-family: Lato;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 20px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.categories__left {
+  width: 545px;
+}
+
+.categories__right {
+  width: 595px;
+  justify-content: space-between;
+}
+
+.cart__product .cart__product__notes {
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-right: 15px;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 20px;
+}
+
+.cart__product .cart__product__notes .cart1 {
+  width: 565px;
+}
+
+.cart__product .cart__product__notes .cart1 .cart__img {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: transform 1s;
+}
+
+.cart__product .cart__product__notes .cart1 .cart__img img {
+  width: 100px;
+  height: 115px;
+}
+
+.cart__product .cart__product__notes .cart1 .cart__img:hover {
+  transform: scale(1.1);
+}
+
+.cart__product .cart__product__notes .cart1 .cart__img .cart_desc {
+  padding-top: 10px;
+}
+
+.cart__product .cart__product__notes .cart1 .cart__img .cart_desc p {
+  color: #000;
+  max-width: 360px;
+  padding-left: 20px;
+}
+
+.cart__product .cart__product__notes .cart1 .cart__img .cart_desc .color_p {
+  color: #000000;
+  padding-top: 30px;
+}
+
+.cart__product .cart__product__notes .cart1 .cart__img .cart_desc .span_grey {
+  color: #575757;
+  font-weight: 300;
+}
+
+.cart__product .cart__product__notes .product__details {
+  width: 575px;
+  justify-content: space-between;
+  padding-left: 5px;
+}
+
+.cart__product .cart__product__notes .product__details .p_second {
+  padding-right: 7px;
+}
+
+.cart__product .cart__product__notes .product__details .p_third {
+  padding-right: 17px;
+}
+
+.cart__product .cart__product__notes .product__details .delete__product {
+  color: #c0c0c0;
+}
+
+.cart__product .cart__product__notes .product__details .delete__product:hover {
+  cursor: pointer;
+}
+
+.cart__product .cart__product__notes .product__details .input_properties {
+  outline: none;
+  width: 50px;
+  height: 20px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 1px solid #9399a3;
+}
+
+.cart__product .cart__product__notes .product__details .input_properties:hover {
+  border: 1px solid #212121;
+}
+
+.cart__product .button__cart {
+  justify-content: space-between;
+  margin-top: 44px;
+}
+
+.cart__product .button__cart .button__left, .cart__product .button__cart .button__right {
+  width: 225px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #eaeaea;
+  background-color: #fff;
+  text-decoration: none;
+  color: #4a4a4a;
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background-color 1s, color 1.5s;
+}
+
+.cart__product .button__cart .button__left:hover, .cart__product .button__cart .button__left:hover, .cart__product .button__cart .button__right:hover, .cart__product .button__cart .button__right:hover {
+  background-color: #262626;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.form {
+  height: 370px;
+  margin-top: 95px;
+}
+
+.form__all {
+  justify-content: space-between;
+}
+
+.form__all .addr {
+  color: #222222;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+
+.form__all .get_a_quote {
+  background-color: #fff;
+  width: 100px;
+  height: 35px;
+  color: #222222;
+  font-family: Lato;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid #eaeaea;
+  margin-top: 15px;
+  transition: background-color 1s, color 1.5s;
+}
+
+.form__all .get_a_quote:hover {
+  background-color: #262626;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.form__1 {
+  flex-direction: column;
+}
+
+.form__1 select {
+  outline: none;
+  width: 355px;
+  height: 45px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid #eaeaea;
+  background-color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #222222;
+  font-family: Lato;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.form__1 input {
+  outline: none;
+  width: 333px;
+  height: 45px;
+  border: 1px solid #eaeaea;
+  background-color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #222222;
+  font-family: Lato;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.form__2 {
+  flex-direction: column;
+}
+
+.form__2 input {
+  outline: none;
+  width: 333px;
+  height: 45px;
+  border: 1px solid #eaeaea;
+  background-color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #222222;
+  font-family: Lato;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.form__2 .code {
+  display: block;
+  padding: 10px 0px 20px;
+}
+
+.form .home:hover {
+  border: 1px solid #9399a3;
+}
+
+.form__3 .bgc {
+  width: 360px;
+  height: 214px;
+  background-color: #f5f3f3;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form__3 .bgc .short_text_1 {
+  padding-left: 120px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  line-height: 2;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.form__3 .bgc .short_text_1 .sub {
+  color: #4a4a4a;
+  font-family: Lato;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-left: 65px;
+}
+
+.form__3 .bgc .short_text_1 .grand {
+  color: #222222;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.form__3 .bgc .short_text_1 .grand span {
+  color: #f16d7f;
+}
+
+.form__3 .bgc .checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 273px;
+  height: 50px;
+  background-color: #f16d7f;
+  color: #ffffff;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  margin: 20px;
+  transition: color 0.8s, box-shadow 0.5s;
+}
+
+.form__3 .bgc .checkout:hover {
+  color: #222222;
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+}
+/*# sourceMappingURL=shoppingCard.css.map */

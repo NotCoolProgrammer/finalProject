@@ -1,0 +1,82 @@
+$accent-color: #f16d7f
+$color-text: #222222
+
+.delivery
+    margin: 55px auto 
+    &__headers
+        text-transform: uppercase
+        color: #222222
+        font-size: 16px
+        font-weight: 700
+        padding: 20px 0 20px 5px
+        border: 1px solid #eaeaea
+        margin: 5px 0
+        &:focus
+            outline: none
+        &:hover
+            cursor: pointer
+            background-color: #f4f2f2
+    .shipping__address
+        &__form, &__final
+            margin-top: 10px
+            padding-left: 20px
+        &__form
+            flex-direction: column
+            &__name, &__surname, &__city, &__postcode, select
+                max-width: 35%
+                color: #222222
+                padding: 8px 10px
+                outline: none
+                border: 1px solid #222222
+                font-family: 'Lato-Regular'
+                font-size: 17px
+                margin-bottom: 20px
+            & select
+                max-width: 37%
+            & ul
+                color: red
+                & li
+                    color: red
+            .option__1, 
+            .option__2, 
+            .option__3, 
+            .option__4, 
+            .option__5, 
+            .option__6, 
+            .option__7, 
+            .option__8, 
+                display: flex
+                align-items: center
+                margin: 10px 0
+            label
+                margin-left: 15px
+        &__final
+            position: relative
+            &_info
+                margin: 10px 0
+                display: flex
+                span
+                    font-weight: 700
+                    padding: 0 5px
+                .recipient
+                    &__name, &__surname
+                        padding: 0
+                .delivery__address
+                    padding: 0
+            .send__to__processing
+                width: 130px
+                height: 38px
+                background-color: #f16d7f
+                color: #ffffff
+                font-size: 15px
+                letter-spacing: 0.38px
+                transition: color 0.8s, box-shadow 0.5s
+                border: none
+                outline: none
+                position: absolute
+                bottom: 0px
+                right: 0px
+                &:hover
+                    color: $color-text
+                    box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16)
+                    cursor: pointer

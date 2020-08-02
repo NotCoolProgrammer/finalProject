@@ -1,0 +1,66 @@
+$accent-color: #f16d7f
+$color-text: #222222
+
+
+.register
+    margin-top: 70px
+    margin-bottom: 250px
+    &__greeting
+        font-size: 25px
+        color: $accent-color
+        margin-bottom: 25px
+        text-transform: uppercase
+        text-align: center
+    .input__fields
+        &__left, &__right
+            width: 50%
+            flex-direction: column
+            padding-left: 15px
+            padding-right: 15px 
+            & input
+                width: 90%
+                color: #000
+                padding: 8px 10px
+                outline: none
+                border: 1px solid #000
+                font-family: 'Lato-Regular'
+                font-size: 14px
+                margin-bottom: 20px
+        &__left .warningFirstName,
+        &__left .warningLastName,
+        &__left .warningEmail,
+        &__left .dublicateEmail,
+        &__left .warningNumber,
+        &__right .warningPassword1,
+        &__right .warningPassword2,
+        &__right .warningPassword,
+        &__right .empty__field
+            margin-top: 9px
+            margin-bottom: 9px
+            font-size: 15px
+            color: red
+            display: none
+        &__right .descWarning 
+            flex-direction: column
+        &__right .img__input
+            margin-bottom: 0
+
+    .submit
+        background-color: $accent-color
+        color: #FFF
+        font-size: 16px
+        display: block
+        border: none
+        outline: none
+        font-family: 'Lato-Regular'
+        transition: color 0.8s, box-shadow 0.5s
+        margin-left: 15px
+        width: 130px
+        height: 39px
+        letter-spacing: 2.5px
+        &:hover
+            color: $color-text
+            box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16)
+            cursor: pointer
+            
+    

@@ -1,0 +1,183 @@
+.main__info {
+  margin-bottom: 150px;
+  margin-top: 50px;
+}
+
+.main__info__about__user {
+  border: 1.5px dashed #cdcdcd;
+}
+
+.main__info__about__user .name__surname, .main__info__about__user .login, .main__info__about__user .photo {
+  display: flex;
+  padding: 10px;
+}
+
+.main__info__about__user .name__surname .name, .main__info__about__user .name__surname .surname, .main__info__about__user .name__surname .designation {
+  color: #414141;
+  font-size: 27px;
+  letter-spacing: 0.68px;
+  font-weight: 100;
+}
+
+.main__info__about__user .name__surname .name, .main__info__about__user .name__surname .designation {
+  padding-right: 10px;
+}
+
+.main__info__about__user .login__designation, .main__info__about__user .login__data {
+  color: #414141;
+  font-size: 27px;
+  letter-spacing: 0.68px;
+  font-weight: 100;
+}
+
+.main__info__about__user .login__designation {
+  padding-right: 10px;
+}
+
+.main__info__about__user .login__data {
+  font-weight: 500;
+}
+
+.main__info__about__user .photo__designation {
+  padding-right: 10px;
+  color: #414141;
+  font-size: 27px;
+  letter-spacing: 0.68px;
+  font-weight: 100;
+}
+
+.main__info__about__user .photo img {
+  width: 20%;
+  border-radius: 100px;
+  border: 3px solid darkgray;
+  box-shadow: 0px 0px 7px #c3c3c3;
+  transition: border 1s;
+}
+
+.main__info__about__user .photo img:hover {
+  border: 3px solid #666;
+}
+
+.main__info__about__user .control__buttons {
+  position: relative;
+}
+
+.main__info__about__user .control__buttons .logout, .main__info__about__user .control__buttons .editUser, .main__info__about__user .control__buttons .deleteUser {
+  position: absolute;
+  top: -60px;
+  font-size: 16px;
+  padding: 10px 12px;
+  color: #fff;
+  background-color: #f16d7f;
+  transition: color 0.8s, box-shadow 0.5s;
+}
+
+.main__info__about__user .control__buttons .logout:hover, .main__info__about__user .control__buttons .editUser:hover, .main__info__about__user .control__buttons .deleteUser:hover {
+  color: #222222;
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+}
+
+.main__info__about__user .control__buttons .logout {
+  right: 20px;
+}
+
+.main__info__about__user .control__buttons .editUser {
+  right: 120px;
+}
+
+.main__info__about__user .control__buttons .deleteUser {
+  right: 233px;
+  cursor: pointer;
+}
+
+.auth__or__register {
+  margin-top: 70px;
+  margin-bottom: 250px;
+}
+
+.auth__or__register .auth, .auth__or__register .register {
+  flex-direction: column;
+  width: 50%;
+}
+
+.auth__or__register .auth__greeting, .auth__or__register .register__greeting {
+  font-size: 25px;
+  color: #f16d7f;
+  margin-bottom: 25px;
+}
+
+.auth__or__register .auth__user {
+  flex-direction: column;
+}
+
+.auth__or__register .auth__user input {
+  max-width: 80%;
+  color: #222222;
+  padding: 8px 10px;
+  outline: none;
+  border: 1px solid #222222;
+  font-family: 'Lato-Regular';
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.auth__or__register .auth__user .forgotPass {
+  align-items: center;
+}
+
+.auth__or__register .auth__user .forgotPassword {
+  color: #222222;
+}
+
+.auth__or__register .auth__user .forgotPass .submit {
+  margin: 0 0 0 45px;
+  width: 130px;
+  height: 38px;
+  text-decoration: none;
+  background-color: #f16d7f;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: color 0.8s, box-shadow 0.5s;
+  border: none;
+}
+
+.auth__or__register .auth__user .forgotPass .submit:hover {
+  color: #222222;
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+}
+
+.auth__or__register .warningEmail, .auth__or__register .warningPassword {
+  margin-top: 9px;
+  margin-bottom: 9px;
+  font-size: 15px;
+  color: red;
+  display: none;
+}
+
+.auth__or__register .register .description {
+  font-size: 17px;
+  line-height: 30px;
+  color: #999;
+  margin-bottom: 26px;
+}
+
+.auth__or__register .register__or__logout {
+  justify-content: space-between;
+}
+
+.auth__or__register .register__or__logout a {
+  font-size: 16px;
+  padding: 10px 12px;
+  color: #fff;
+  background-color: #f16d7f;
+  transition: color 0.8s, box-shadow 0.5s;
+}
+
+.auth__or__register .register__or__logout a:hover {
+  color: #222222;
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+}
+/*# sourceMappingURL=account.css.map */

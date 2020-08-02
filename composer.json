@@ -1,0 +1,29 @@
+{
+    "name": "sasha/final-project",
+    "authors": [
+        {
+            "name": "Александр",
+            "email": "alexandr.tvelenev@mail.ru"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "theBrand\\": "PHP"
+        },
+        "files": [
+            "PHP/Controllers/workWithDB.php",
+            "PHP/config.php",
+            "PHP/Models/systemFunctions.php",
+            "PHP/Controllers/interactiveActions.php",
+            "PHP/Controllers/Routing.php",
+            "PHP/Controllers/Router.php",
+            "PHP/Models/crud.php",
+            "PHP/Controllers/additionalFunctions.php"
+        ]
+    },
+
+    "require": {
+        "atk4/dsql": "^2.0"
+    }
+}

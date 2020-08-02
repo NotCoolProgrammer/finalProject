@@ -1,0 +1,76 @@
+.register {
+  margin-top: 70px;
+  margin-bottom: 250px;
+}
+
+.register__greeting {
+  font-size: 25px;
+  color: #f16d7f;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.register .input__fields__left, .register .input__fields__right {
+  width: 50%;
+  flex-direction: column;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.register .input__fields__left input, .register .input__fields__right input {
+  width: 90%;
+  color: #000;
+  padding: 8px 10px;
+  outline: none;
+  border: 1px solid #000;
+  font-family: 'Lato-Regular';
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.register .input__fields__left .warningFirstName,
+.register .input__fields__left .warningLastName,
+.register .input__fields__left .warningEmail,
+.register .input__fields__left .dublicateEmail,
+.register .input__fields__left .warningNumber,
+.register .input__fields__right .warningPassword1,
+.register .input__fields__right .warningPassword2,
+.register .input__fields__right .warningPassword,
+.register .input__fields__right .empty__field {
+  margin-top: 9px;
+  margin-bottom: 9px;
+  font-size: 15px;
+  color: red;
+  display: none;
+}
+
+.register .input__fields__right .descWarning {
+  flex-direction: column;
+}
+
+.register .input__fields__right .img__input {
+  margin-bottom: 0;
+}
+
+.register .submit {
+  background-color: #f16d7f;
+  color: #FFF;
+  font-size: 16px;
+  display: block;
+  border: none;
+  outline: none;
+  font-family: 'Lato-Regular';
+  transition: color 0.8s, box-shadow 0.5s;
+  margin-left: 15px;
+  width: 130px;
+  height: 39px;
+  letter-spacing: 2.5px;
+}
+
+.register .submit:hover {
+  color: #222222;
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+}
+/*# sourceMappingURL=register.css.map */

@@ -1,0 +1,163 @@
+$accent-color: #f16d7f
+$color-text: #222222
+
+// ---------------------------------------------------------------------------------------------------------
+
+.all__products
+    margin: 60px auto
+    &__navigation
+        .product__list
+            list-style-type: none
+            margin-top: 15px
+            &:first-child
+                margin-top: 0
+            .product__link
+                display: flex
+                justify-content: flex-start
+                color: $accent-color
+                font-size: 14px
+                text-transform: uppercase
+                font-weight: 400
+                padding: 10px
+                border-left: 5px solid $accent-color
+                border-bottom: 1px solid #EBEBEB
+                &:hover
+                    cursor: pointer
+            .drop__ul
+                max-height: 0px
+                opacity: 0
+                overflow: hidden
+                transition: max-height 3s, opacity 3s
+                .drop__li
+                    padding-left: 15px
+                    &:first-child
+                        padding-top: 15px
+                    &:hover
+                        cursor: pointer
+        .apply__filter
+            display: flex
+            align-items: center
+            justify-content: center
+            width: 240px
+            height: 38px
+            margin-top: 30px
+            background-color: #fff
+            text-decoration: none
+            background-color: $accent-color
+            color: #ffffff
+            font-size: 15px
+            font-weight: 400
+            letter-spacing: 0.38px
+            transition: color 0.8s, box-shadow 0.5s
+            border: none
+            &:hover
+                color: $color-text
+                box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16)
+                cursor: pointer
+            &:focus
+                outline: none
+        .product__materials, .size, .price
+            padding-bottom: 20px        
+            border-bottom: 1px solid #bdb8b7  
+        .product__materials
+            min-height: 85px
+            max-width: 240px      
+            &__header
+                color: #6F6E6E
+                font-size: 14px
+                text-transform: uppercase
+                font-weight: 500
+                padding-bottom: 20px
+                text-align: center
+            &__components
+                max-width: 240px
+                flex-wrap: wrap
+                align-items: center
+                &__p
+                    color: #6F6E6E
+                    font-size: 14px
+                    font-weight: 400
+                    &:hover
+                        cursor: pointer
+                        color: $accent-color
+                span
+                    padding-left: 10px
+                    padding-right: 10px
+        .size   
+            padding-top: 15px
+            .size__label
+                display: flex
+                flex-wrap: wrap
+                color: #6F6E6E
+                font-size: 14px
+                font-weight: 400
+                text-transform: uppercase
+                text-align: center
+                label
+                    flex-grow: 1
+                    flex-basis: 60px
+                    margin: -2px 0px 5px 5px
+        .price     
+            padding-top: 15px
+            .irs-min, .irs-max
+                font-size: 15px
+            .irs-from, .irs-to
+                font-size: 14px
+    &__content
+        flex-grow: 1
+        flex-direction: column
+        &__features
+            justify-content: space-around
+            &_2
+                background-color: #F3F3F3
+                height: 50px
+                flex-grow: 1
+                margin: 35px 0 0 60px
+                .content
+                    justify-content: space-around
+                    max-width: 250px 
+                    &__1, &__2
+                        background-color: #fff
+                        border: 1px solid #F3F3F3
+                        margin-top: 11px
+                    &__1__p
+                        border-right: 2px solid #F3F3F3
+                        padding: 3px 7px
+        &__choice
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
+            grid-column-gap: 30px
+            grid-row-gap: 30px
+            margin-left: 40px
+    .filter
+        color: #dc143c
+
+
+// ---------------------------------------------------------------------------------------------------------
+
+.discount__info
+    background-color: $color-text
+    &__content
+        min-height: 340px
+        justify-content: space-around
+        .delivery, .sales, .quality
+            max-width: 330px
+            min-height: 150px
+            padding-top: 90px
+            padding-bottom: 90px
+            img
+                margin-left: 145px
+                margin-bottom: 30px
+        .delivery__h1, .delivery__p
+            text-align: center
+            color: #FBFBFB
+        .delivery__h1
+                font-size: 20px
+                font-weight: 700
+                padding-bottom: 17px
+        .delivery__p
+                font-size: 14px
+                font-weight: 300
+                line-height: 25px
+    
+// ----------------------------------------------------------------------------------------------------------

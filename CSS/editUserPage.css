@@ -1,0 +1,68 @@
+.main__info {
+  margin-top: 70px;
+  margin-bottom: 250px;
+}
+
+.main__info p, .main__info label {
+  color: #222222;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.main__info__h1 {
+  font-size: 25px;
+  color: #f16d7f;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.main__info .main__editing__fields, .main__info .additional__editing__fields {
+  flex-direction: column;
+  width: 50%;
+}
+
+.main__info .main__editing__fields input, .main__info .additional__editing__fields input {
+  max-width: 80%;
+  color: #222222;
+  padding: 8px 10px;
+  outline: none;
+  border: 1px solid #222222;
+  font-family: 'Lato-Regular';
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.main__info .main__editing__fields .send__user__data {
+  width: 140px;
+  height: 40px;
+  background-color: #f16d7f;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.38px;
+  transition: color 0.8s, box-shadow 0.5s;
+  border: none;
+}
+
+.main__info .main__editing__fields .send__user__data:hover {
+  color: #222222;
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+}
+
+.main__info .warningEmail,
+.main__info .dublicateEmail,
+.main__info .warningNumber,
+.main__info .empty__field,
+.main__info .warningPassword1,
+.main__info .warningPassword2,
+.main__info .warningPassword3 {
+  margin-top: 2px;
+  margin-bottom: 9px;
+  font-size: 15px;
+  color: red;
+  display: none;
+  max-width: 80%;
+}
+/*# sourceMappingURL=editUserPage.css.map */

@@ -1,0 +1,253 @@
+$accent-color: #f16d7f
+$color-text: #222222
+
+
+
+.single__product
+    width: 600px
+    margin: 0 auto
+    margin-top: 25px
+    &__wear
+        display: table
+        position: relative
+        overflow: hidden
+        user-select: none
+        .slidewrapper
+            position: relative
+            width: calc(100% * 6)
+            top: 0
+            left: 0
+            margin: 0
+            padding: 0
+            transition: 1s
+            transition-timing-function: ease-in-out
+            & ul, & li
+                margin: 0
+                padding: 0
+            & li 
+                width: calc(100% / 6)
+                list-style: none
+                display: inline
+                float: left
+                .slide__img
+                    width: 600px
+                    height: 700px
+                    display: inherit
+                    margin: 0 auto
+        .navigation
+            &__prev, &__next
+                position: absolute
+                top: calc(50% - 25px)
+                width: 50px
+                height: 50px
+                background-color: #D8D8D8
+                justify-content: center
+                align-items: center
+                color: #fff
+                transition: background-color 0.6s
+                &:hover
+                    background-color: $accent-color
+                    cursor: pointer
+            &__prev
+                left: 10px
+            &__next
+                right: 10px
+
+
+
+
+// ---------------------------------------------------------------------------------------------------------
+
+.clothing__features
+    background-color: #fff
+    top: -60px
+    border: 1px solid #EAEAEA
+    position: relative
+    &__info
+        justify-content: center
+        .unique__info
+            max-width: 641px
+            &__h4, &__lines, &__h3, .info__about__clothes, p
+                justify-content: center
+            &__h4
+                font-size: 14px
+                text-transform: uppercase
+                color: #f16d7f
+                font-weight: 700
+                line-height: 24px
+                padding-top: 73px
+            &__lines
+                align-items: center
+                padding-top: 9px
+                .line__1, .line__2, .line__3
+                    width: 41px
+                    height: 1px
+                    background-color: #EAEAEA
+                .line__2
+                    background-color: $accent-color
+                    height: 3px
+            &__h3
+                color: #4d4d4d
+                font-size: 18px
+                font-weight: 700
+                text-transform: uppercase
+                padding-top: 13px
+                padding-bottom: 59px
+            & p
+                color: #5E5E5E
+                font-size: 14px
+            .info__about__clothes
+                padding-top: 23px
+                .material
+                    color: #B9B9B9
+                    text-transform: uppercase
+                    font-size: 14px
+                    font-weight: 700
+                    & span
+                        color: #2F2F2F
+                    &_1
+                        padding-right: 44px
+            .price
+                justify-content: center
+                color: #EF5B70
+                font-size: 24px
+                font-weight: 700
+                padding-top: 31px
+                padding-bottom: 41px
+    .form__to__cart
+        justify-content: center
+        .features
+            width: 641px
+            border-top: 1px solid #EAEAEA
+            &__filter
+                justify-content: space-around
+                & h3
+                    padding-top: 60px
+                    padding-bottom: 16px
+                    font-size: 14px
+                    font-weight: 700
+                    text-transform: uppercase
+                select, input
+                    outline: none
+                    width: 144px
+                    height: 35px
+                    color: #4A464D
+                    padding-left: 9px
+                    padding-right: 9px
+                    border: 1px solid #EAEAEA
+                    &:hover
+                        border: 1px solid #9399a3
+                input
+                    width: 124px
+                    height: 33px
+            .add__to__cart
+                justify-content: center
+                margin-top: 28px
+                margin-bottom: 122px
+                &__span
+                    justify-content: center
+                    align-items: center
+                    text-decoration: none
+                    background-color: #f16d7f
+                    color: #ffffff
+                    width: 570px
+                    height: 55px
+                    font-size: 20px
+                    font-weight: 700
+                    letter-spacing: 0.38px
+                    transition: color 0.8s, box-shadow 0.5s
+                    &:hover
+                        cursor: pointer
+                        color: $color-text
+                        box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16)
+                & img
+                    padding-right: 12px
+                    width: 38px
+                    height: 24px
+
+// ---------------------------------------------------------------------------------------------------------
+
+.feedback
+    min-height: 438px
+    background-color: #f7f7f8
+    margin-bottom: 123px
+    &__img
+        background-repeat: no-repeat
+        background-image: url(../img/Rectangle_9_copy.png), url(../img/nature.png)
+        width: 1618px
+        min-height: 100%
+        margin: 0 auto
+        .text__for__feedback__form
+            line-height: 35px
+            letter-spacing: 0.6px
+            font-weight: 400
+            padding: 20px
+            text-align: center
+            text-transform: uppercase
+            color: #545454
+        .feedback__form
+            flex-direction: column
+            &__name, &__surname, &__review__content
+                color: $color-text
+                background-color: #e9e9e9
+                padding: 8px 10px
+                outline: none
+                border: 1px solid #222222
+                font-family: 'Lato-Regular'
+                font-size: 17px;
+                margin: 0 auto 15px auto
+                border: 1px solid #b5b0b0
+                width: 50%
+            .feedback__form__review
+                flex-direction: column
+                .review__and__stars
+                    & i
+                        color: #949494
+                    .orange
+                        color: #f89d13
+                    &__text
+                        margin-left: 275px
+                        margin-right: 40px
+                        padding-bottom: 10px
+                        color: #545454
+            .warningText, .warningFirstName, .warningLastName
+                margin: 9px 0 9px 274px
+                font-size: 15px
+                color: red
+                display: none
+            .submit__button
+                    background-color: #acacac
+                    color: #FFF
+                    font-size: 16px
+                    font-family: 'Lato-Regular'
+                    transition: color 0.8s, box-shadow 0.5s
+                    margin-left: 726px
+                    width: 140px
+                    height: 35px
+                    letter-spacing: 2.5px
+                    justify-content: center
+                    align-items: center
+                    &:hover
+                        color: black
+                        background-color: #989898
+                        cursor: pointer
+                    &::selection
+                       color: black 
+
+// ---------------------------------------------------------------------------------------------------------
+
+.similar__product
+    &__h3
+        padding-bottom: 60px
+        justify-content: center
+        color: #4d4d4d
+        font-size: 24px
+        font-weight: 700
+        text-transform: uppercase
+    &__box
+        flex-wrap: wrap
+        justify-content: space-between
+        margin-bottom: 34px
+    
+.activeElement
+    color: #565656
