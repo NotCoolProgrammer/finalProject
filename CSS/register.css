@@ -13,7 +13,10 @@
 
 .register .input__fields__left, .register .input__fields__right {
   width: 50%;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -46,7 +49,10 @@
 }
 
 .register .input__fields__right .descWarning {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .register .input__fields__right .img__input {
@@ -61,7 +67,10 @@
   border: none;
   outline: none;
   font-family: 'Lato-Regular';
+  -webkit-transition: color 0.8s, -webkit-box-shadow 0.5s;
+  transition: color 0.8s, -webkit-box-shadow 0.5s;
   transition: color 0.8s, box-shadow 0.5s;
+  transition: color 0.8s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
   margin-left: 15px;
   width: 130px;
   height: 39px;
@@ -70,7 +79,8 @@
 
 .register .submit:hover {
   color: #222222;
-  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
 }
 /*# sourceMappingURL=register.css.map */

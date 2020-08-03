@@ -75,7 +75,7 @@
         <div class="container">
             <ul class="menu flex">
                 <li class="menu__list flex"><a href="/" class="menu__link">Home</a></li>
-                <li class="menu__list flex"><a href="#" class="menu__link">Man</a>
+                <li class="menu__list flex"><a href="/allProducts" class="menu__link">Man</a>
                     <div class="drop drop__first">
                         <div class="drop__flex">
                             <h3 class="drop__h3">Women</h3>
@@ -108,7 +108,7 @@
                         </div>
                     </div>
                 </li>
-                <li class="menu__list flex"><a href="#" class="menu__link">Women</a>
+                <li class="menu__list flex"><a href="/allProducts" class="menu__link">Women</a>
                     <div class="drop drop__first">
                         <div class="drop__flex">
                             <h3 class="drop__h3">Women</h3>
@@ -155,9 +155,9 @@
                         </div>
                     </div>
                 </li>
-                <li class="menu__list flex"><a href="#" class="menu__link">Kids</a></li>
-                <li class="menu__list flex"><a href="#" class="menu__link">Accoseriese</a></li>
-                <li class="menu__list flex"><a href="#" class="menu__link">Featured</a>
+                <li class="menu__list flex"><a href="/allProducts" class="menu__link">Kids</a></li>
+                <li class="menu__list flex"><a href="/allProducts" class="menu__link">Accoseriese</a></li>
+                <li class="menu__list flex"><a href="/allProducts" class="menu__link">Featured</a>
                     <div class="drop drop__last">
                         <div class="drop__flex">
                             <h3 class="drop__h3">Women</h3>
@@ -190,7 +190,7 @@
                         </div>
                     </div>
                 </li>
-                <li class="menu__list flex"><a href="#" class="menu__link">Hot Deals </a>
+                <li class="menu__list flex"><a href="/allProducts" class="menu__link">Hot Deals </a>
                     <div class="drop drop__last">
                         <div class="drop__flex">
                             <h3 class="drop__h3">Women</h3>

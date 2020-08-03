@@ -11,14 +11,13 @@ class WorkWithDB {
     function getAllProductsFromDB () {
         $pdo = connection();
         $query = $pdo -> prepare('
-                select id, name, price, singleView, fulldesc, designer, material, collection, mainImg, json_agg(size) from products
+                select products.id, name, price, singleView, fulldesc, designer, material, collection, mainImg, json_agg(size) from products
                 left join products_size ps on products.id = ps.id_product
                 group by (products.id)
         ');
         $query ->execute();
         $product = $query -> fetchAll();
         return json_encode($product);
-        // return $product;
     }
 
     function getAllInfoAboutAllProducts () {
@@ -126,7 +125,7 @@ class WorkWithDB {
 
     function deleteOneProduct ($idUser, $idOfSpecificProduct) {
         $pdo = connection();
-        $query = $pdo -> prepare('delete from users_products where user_id = ? and uniqueID = ?');
+        $query = $pdo -> prepare('delete from users_products where user_id = ? and id = ?');
         $query -> execute([$idUser, $idOfSpecificProduct]);
     }
 
@@ -199,8 +198,8 @@ class WorkWithDB {
         $pdo = connection();
         $query = $pdo -> prepare('select * from users');
         $query -> execute();
-        $allStates = $query -> fetchAll();
-        return json_encode($allStates);
+        $allUsers = $query -> fetchAll();
+        return json_encode($allUsers);
     }
 
     function getAllEmails () {

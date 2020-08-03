@@ -1,6 +1,8 @@
 .categories {
   margin-top: 60px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 60px;
   color: #222222;
   font-family: Lato;
@@ -25,7 +27,9 @@
 }
 
 .cart__product__notes {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-top: 30px;
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 20px;
@@ -36,9 +40,14 @@
 }
 
 .cart__product__notes .unique__cart .cart__img {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
   transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
 }
 
 .cart__product__notes .unique__cart .cart__img img {
@@ -47,7 +56,8 @@
 }
 
 .cart__product__notes .unique__cart .cart__img:hover {
-  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .cart__product__notes .unique__cart .cart__img .cart_desc {
@@ -79,8 +89,12 @@
 }
 
 .cart__product__notes .product__details__price {
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .cart__product__notes .product__details .subtotal__product__currency,
@@ -106,25 +120,35 @@
 
 .cart__product__notes .product__details .delete__product i {
   font-size: 20px;
+  -webkit-transition: color 0.8s, -webkit-transform 0.6s;
+  transition: color 0.8s, -webkit-transform 0.6s;
   transition: color 0.8s, transform 0.6s;
+  transition: color 0.8s, transform 0.6s, -webkit-transform 0.6s;
 }
 
 .cart__product__notes .product__details .delete__product i:hover {
   cursor: pointer;
   color: #f16d7f;
-  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 .control__button {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-top: 44px;
 }
 
 .control__button__left {
   width: 225px;
   height: 50px;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 1px solid #eaeaea;
   background-color: #fff;
   text-decoration: none;
@@ -133,6 +157,7 @@
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
+  -webkit-transition: background-color 1s, color 1.5s;
   transition: background-color 1s, color 1.5s;
 }
 
@@ -152,11 +177,16 @@
 }
 
 .form__all {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .form__all .form__1 {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   border: 1px solid #cdcdcd;
   padding: 20px;
 }
@@ -196,7 +226,9 @@
 }
 
 .form__all .form__1 .buttons {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .form__all .form__1 .buttons .apply__coupon, .form__all .form__1 .buttons .delete__coupon {
@@ -210,6 +242,7 @@
   text-transform: uppercase;
   border: 1px solid #eaeaea;
   margin-top: 15px;
+  -webkit-transition: background-color 1s, color 1.5s;
   transition: background-color 1s, color 1.5s;
 }
 
@@ -236,9 +269,16 @@
   width: 360px;
   height: 232px;
   background-color: #f5f3f3;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .form__all .form__2__header1 {
@@ -290,8 +330,12 @@
 }
 
 .form__all .form__2 .checkout {
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 273px;
   height: 50px;
   background-color: #f16d7f;
@@ -302,11 +346,15 @@
   text-transform: uppercase;
   border: none;
   margin: 40px 20px 20px 20px;
+  -webkit-transition: color 0.8s, -webkit-box-shadow 0.5s;
+  transition: color 0.8s, -webkit-box-shadow 0.5s;
   transition: color 0.8s, box-shadow 0.5s;
+  transition: color 0.8s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
 }
 
 .form__all .form__2 .checkout:hover {
   color: #222222;
-  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
 }
 /*# sourceMappingURL=shoppingCart.css.map */

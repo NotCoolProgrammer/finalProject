@@ -19,7 +19,10 @@
 }
 
 .main__info .main__editing__fields, .main__info .additional__editing__fields {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 50%;
 }
 
@@ -42,13 +45,17 @@
   font-size: 17px;
   font-weight: 400;
   letter-spacing: 0.38px;
+  -webkit-transition: color 0.8s, -webkit-box-shadow 0.5s;
+  transition: color 0.8s, -webkit-box-shadow 0.5s;
   transition: color 0.8s, box-shadow 0.5s;
+  transition: color 0.8s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
   border: none;
 }
 
 .main__info .main__editing__fields .send__user__data:hover {
   color: #222222;
-  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
 }
 
 .main__info .warningEmail,

@@ -8,7 +8,10 @@
   display: table;
   position: relative;
   overflow: hidden;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .single__product__wear .slidewrapper {
@@ -18,8 +21,10 @@
   left: 0;
   margin: 0;
   padding: 0;
+  -webkit-transition: 1s;
   transition: 1s;
-  transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 
 .single__product__wear .slidewrapper ul, .single__product__wear .slidewrapper li {
@@ -47,9 +52,14 @@
   width: 50px;
   height: 50px;
   background-color: #D8D8D8;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #fff;
+  -webkit-transition: background-color 0.6s;
   transition: background-color 0.6s;
 }
 
@@ -74,7 +84,9 @@
 }
 
 .clothing__features__info {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .clothing__features__info .unique__info {
@@ -82,7 +94,9 @@
 }
 
 .clothing__features__info .unique__info__h4, .clothing__features__info .unique__info__lines, .clothing__features__info .unique__info__h3, .clothing__features__info .unique__info .info__about__clothes, .clothing__features__info .unique__info p {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .clothing__features__info .unique__info__h4 {
@@ -95,7 +109,9 @@
 }
 
 .clothing__features__info .unique__info__lines {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-top: 9px;
 }
 
@@ -144,7 +160,9 @@
 }
 
 .clothing__features__info .unique__info .price {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   color: #EF5B70;
   font-size: 24px;
   font-weight: 700;
@@ -153,7 +171,9 @@
 }
 
 .clothing__features .form__to__cart {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .clothing__features .form__to__cart .features {
@@ -162,7 +182,8 @@
 }
 
 .clothing__features .form__to__cart .features__filter {
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .clothing__features .form__to__cart .features__filter h3 {
@@ -175,7 +196,7 @@
 
 .clothing__features .form__to__cart .features__filter select, .clothing__features .form__to__cart .features__filter input {
   outline: none;
-  width: 144px;
+  width: 170px;
   height: 35px;
   color: #4A464D;
   padding-left: 9px;
@@ -193,14 +214,20 @@
 }
 
 .clothing__features .form__to__cart .features .add__to__cart {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 28px;
   margin-bottom: 122px;
 }
 
 .clothing__features .form__to__cart .features .add__to__cart__span {
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-decoration: none;
   background-color: #f16d7f;
   color: #ffffff;
@@ -209,13 +236,17 @@
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.38px;
+  -webkit-transition: color 0.8s, -webkit-box-shadow 0.5s;
+  transition: color 0.8s, -webkit-box-shadow 0.5s;
   transition: color 0.8s, box-shadow 0.5s;
+  transition: color 0.8s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
 }
 
 .clothing__features .form__to__cart .features .add__to__cart__span:hover {
   cursor: pointer;
   color: #222222;
-  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
 }
 
 .clothing__features .form__to__cart .features .add__to__cart img {
@@ -249,7 +280,10 @@
 }
 
 .feedback__img .feedback__form {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .feedback__img .feedback__form__name, .feedback__img .feedback__form__surname, .feedback__img .feedback__form__review__content {
@@ -266,7 +300,10 @@
 }
 
 .feedback__img .feedback__form .feedback__form__review {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .feedback__img .feedback__form .feedback__form__review .review__and__stars i {
@@ -296,13 +333,20 @@
   color: #FFF;
   font-size: 16px;
   font-family: 'Lato-Regular';
+  -webkit-transition: color 0.8s, -webkit-box-shadow 0.5s;
+  transition: color 0.8s, -webkit-box-shadow 0.5s;
   transition: color 0.8s, box-shadow 0.5s;
+  transition: color 0.8s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
   margin-left: 726px;
   width: 140px;
   height: 35px;
   letter-spacing: 2.5px;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .feedback__img .feedback__form .submit__button:hover {
@@ -311,13 +355,19 @@
   cursor: pointer;
 }
 
+.feedback__img .feedback__form .submit__button::-moz-selection {
+  color: black;
+}
+
 .feedback__img .feedback__form .submit__button::selection {
   color: black;
 }
 
 .similar__product__h3 {
   padding-bottom: 60px;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   color: #4d4d4d;
   font-size: 24px;
   font-weight: 700;
@@ -325,8 +375,11 @@
 }
 
 .similar__product__box {
-  flex-wrap: wrap;
-  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-bottom: 34px;
 }
 

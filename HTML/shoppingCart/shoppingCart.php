@@ -63,7 +63,7 @@
                             ?>
                         </span>
                     </div>
-                    <span class="delete__product" data-id="<?php echo $product['uniqueid'] ?>"><i class="fas fa-times-circle"></i></span>
+                    <span class="delete__product" data-id="<?php echo $product['id'] ?>"><i class="fas fa-times-circle"></i></span>
                 </div>
             </div>
         <?php  endforeach; ?>

@@ -97,9 +97,6 @@ function filterProducts (products) {
 
     generateAllProducts(products.filter(n => (
         (!filteredMaterials.length || filteredMaterials.includes(n.material)) &&
-        // (!filteredSizes.length || filteredSizes.includes(JSON.parse(n.json_agg)))
-        // (!filteredSizes.length || JSON.parse(n.json_agg).includes(filteredSizes))
-        // (!filteredSizes.length || JSON.parse(n.json_agg).find())
         (!priceMin || priceMin <= n.price) &&
         (!priceMax || priceMax >= n.price) &&
         (!filteredDesigners.length || filteredDesigners.includes(n.designer)) &&

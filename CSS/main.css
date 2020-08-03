@@ -6,7 +6,9 @@
   height: 614px;
   background-image: url(../img/promo__back.png);
   background-position: 0 -51px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .promo__text {
@@ -63,7 +65,10 @@
   background-image: url(../img/main__1.png);
   margin-bottom: 20px;
   position: relative;
+  -webkit-transition: -webkit-box-shadow 1s;
+  transition: -webkit-box-shadow 1s;
   transition: box-shadow 1s;
+  transition: box-shadow 1s, -webkit-box-shadow 1s;
 }
 
 .middle__left .promo2 {
@@ -71,7 +76,10 @@
   height: 261px;
   background-color: #dadad2;
   position: relative;
+  -webkit-transition: -webkit-box-shadow 1s;
+  transition: -webkit-box-shadow 1s;
   transition: box-shadow 1s;
+  transition: box-shadow 1s, -webkit-box-shadow 1s;
 }
 
 .middle__right {
@@ -86,7 +94,10 @@
   background-image: url(../img/main__3.png);
   margin-bottom: 20px;
   position: relative;
+  -webkit-transition: -webkit-box-shadow 1s;
+  transition: -webkit-box-shadow 1s;
   transition: box-shadow 1s;
+  transition: box-shadow 1s, -webkit-box-shadow 1s;
 }
 
 .middle__right .promo4 {
@@ -94,15 +105,20 @@
   height: 542px;
   background-image: url(../img/main__4.png);
   position: relative;
+  -webkit-transition: -webkit-box-shadow 1s;
+  transition: -webkit-box-shadow 1s;
   transition: box-shadow 1s;
+  transition: box-shadow 1s, -webkit-box-shadow 1s;
 }
 
 .middle__left__promo1:hover {
-  box-shadow: 8px 14px 5px rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 8px 14px 5px rgba(0, 0, 0, 0.16);
+          box-shadow: 8px 14px 5px rgba(0, 0, 0, 0.16);
 }
 
 .middle__right__promo2:hover {
-  box-shadow: -8px 14px 5px rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: -8px 14px 5px rgba(0, 0, 0, 0.16);
+          box-shadow: -8px 14px 5px rgba(0, 0, 0, 0.16);
 }
 
 .text {
@@ -157,7 +173,9 @@
 }
 
 .product h3 {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   color: #222222;
   font-size: 30px;
   font-weight: 700;
@@ -165,7 +183,9 @@
 }
 
 .product__store__desc {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   color: #9f9f9f;
   font-size: 14px;
   font-weight: 400;
@@ -174,8 +194,10 @@
 
 .product-box {
   margin-top: 60px;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 30px;
 }
@@ -184,19 +206,27 @@
   margin: 39px auto 0px auto;
   width: 212px;
   height: 48px;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #f16d7f;
   color: #ffffff;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.4px;
+  -webkit-transition: color 0.8s, -webkit-box-shadow 0.5s;
+  transition: color 0.8s, -webkit-box-shadow 0.5s;
   transition: color 0.8s, box-shadow 0.5s;
+  transition: color 0.8s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
 }
 
 .product__all:hover {
   color: #222222;
-  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
 }
 
 .discount {
@@ -238,8 +268,12 @@
 }
 
 .discount__img {
-  filter: brightness(70%);
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  -webkit-transition: -webkit-filter 1s;
+  transition: -webkit-filter 1s;
   transition: filter 1s;
+  transition: filter 1s, -webkit-filter 1s;
 }
 
 .discount__offer {
@@ -252,7 +286,8 @@
 }
 
 .discount__img:hover {
-  filter: none;
+  -webkit-filter: none;
+          filter: none;
 }
 
 .discount__list {
@@ -263,8 +298,12 @@
 .discount__delivery, .discount__sales, .discount__quality {
   height: 33.3%;
   width: 100%;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .discount__logo {

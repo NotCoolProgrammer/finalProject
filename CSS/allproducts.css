@@ -12,8 +12,12 @@
 }
 
 .all__products__navigation .product__list .product__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   color: #f16d7f;
   font-size: 14px;
   text-transform: uppercase;
@@ -31,6 +35,7 @@
   max-height: 0px;
   opacity: 0;
   overflow: hidden;
+  -webkit-transition: max-height 3s, opacity 3s;
   transition: max-height 3s, opacity 3s;
 }
 
@@ -47,9 +52,15 @@
 }
 
 .all__products__navigation .apply__filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 240px;
   height: 38px;
   margin-top: 30px;
@@ -60,13 +71,17 @@
   font-size: 15px;
   font-weight: 400;
   letter-spacing: 0.38px;
+  -webkit-transition: color 0.8s, -webkit-box-shadow 0.5s;
+  transition: color 0.8s, -webkit-box-shadow 0.5s;
   transition: color 0.8s, box-shadow 0.5s;
+  transition: color 0.8s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
   border: none;
 }
 
 .all__products__navigation .apply__filter:hover {
   color: #222222;
-  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
 }
 
@@ -74,7 +89,7 @@
   outline: none;
 }
 
-.all__products__navigation .product__materials, .all__products__navigation .size, .all__products__navigation .price {
+.all__products__navigation .product__materials, .all__products__navigation .price {
   padding-bottom: 20px;
   border-bottom: 1px solid #bdb8b7;
 }
@@ -95,8 +110,11 @@
 
 .all__products__navigation .product__materials__components {
   max-width: 240px;
-  flex-wrap: wrap;
-  align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .all__products__navigation .product__materials__components__p {
@@ -115,26 +133,6 @@
   padding-right: 10px;
 }
 
-.all__products__navigation .size {
-  padding-top: 15px;
-}
-
-.all__products__navigation .size .size__label {
-  display: flex;
-  flex-wrap: wrap;
-  color: #6F6E6E;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.all__products__navigation .size .size__label label {
-  flex-grow: 1;
-  flex-basis: 60px;
-  margin: -2px 0px 5px 5px;
-}
-
 .all__products__navigation .price {
   padding-top: 15px;
 }
@@ -148,23 +146,32 @@
 }
 
 .all__products__content {
-  flex-grow: 1;
-  flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .all__products__content__features {
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .all__products__content__features_2 {
   background-color: #F3F3F3;
   height: 50px;
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   margin: 35px 0 0 60px;
 }
 
 .all__products__content__features_2 .content {
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   max-width: 250px;
 }
 
@@ -180,8 +187,10 @@
 }
 
 .all__products__content__choice {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 30px;
   margin-left: 40px;
@@ -197,7 +206,8 @@
 
 .discount__info__content {
   min-height: 340px;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .discount__info__content .delivery, .discount__info__content .sales, .discount__info__content .quality {

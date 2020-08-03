@@ -21,8 +21,10 @@ $(document).ready(function () {
             grandTotal();
         }
 
-        $.post('/deleteOneProduct', {idOfSpecificProduct});
-        thisProduct.remove();
+        $.post('/deleteOneProduct', {idOfSpecificProduct}, function () {
+            thisProduct.remove();
+            grandTotal();
+        });
         if ($('.cart__product')[0].children.length === 0) {
             $('.amount__with__discount').css('display', 'none');
             $('.amount__without__discount').css('text-decoration', 'none');
@@ -130,7 +132,7 @@ function checkCouponForThePresenceOfUser (result, coupon) {
         }, 2500);
     } else {
         $('.dublicate__coupon').css('display', 'none');
-        $.post('/addCouponInShoppingCard', {coupon}, function () {
+        $.post('/addCouponInShoppingCart', {coupon}, function () {
             applyCoupon(coupon);
         });
     }

@@ -23,7 +23,7 @@ function connection () {
         $database = ltrim($database_connection['path'], '/');
 
         try {
-            $pdo_dsn = 'pgsql:host='.$host.';port='.$port.';dbname='.$database; 
+            $pdo_dsn = 'pgsql:host='.$host.';port='.$port.';dbname='.$database;
             $pdo = new PDO($pdo_dsn, $user, $pass, $opt);
         } catch (PDOException $exception) {
             die('нету подключения к базе данных');

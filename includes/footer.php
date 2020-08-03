@@ -4,13 +4,13 @@
             <div class="feedback__bg2 bxbb">
                 <h3 class="feedback__bg2__info_1">SUBSCRIBE</h3>
                 <p class="feedback__bg2__info_2">FOR OUR NEWLETTER AND PROMOTION</p>
-                <form class="subscribe__form flex">
+                <div class="subscribe__form flex">
                     <div class="subscribe__form__info">
                         <input class="email" type="text" placeholder="Enter Your Email" name="email" id="email">
                         <p class="warning__email">Используйте одну из популярных почт (yandex.ru, mail.ru, gmail.com)</p>
                     </div>
-                    <button class="feedback__bg2__button bxbb flex" type="button">Subscribe</button>
-                </form>
+                    <button class="feedback__bg2__button bxbb flex">Subscribe</button>
+                </div>
             </div>
         </div>
     </div>

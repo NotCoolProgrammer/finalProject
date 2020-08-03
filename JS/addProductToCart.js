@@ -33,7 +33,7 @@ function productDesigner (e) {
         countOfProducts = 1;
     }
     let product = {
-        id: e.currentTarget.dataset.id,
+        id: Number(e.currentTarget.dataset.id),
         img: object.previousElementSibling.childNodes[1].childNodes[1].children[0].children[0].dataset.src,
         name: object.children[0].children[0].children[2].textContent,
         price: Number(object.children[0].children[0].children[5].children[1].textContent),
@@ -47,19 +47,17 @@ function productDesigner (e) {
 
 function successfullyАddedЗroduct() {
     let text = 'Товар добавлен в корзину <br>Приятных покупок';
-    let paddingTop = '50px';
-    let distanceToLeft = '38%';
-    showAnswer(text, paddingTop, distanceToLeft);
+    let distanceToLeft = '39%';
+    showAnswer(text, distanceToLeft);
 }
 
 function pleaseRegister() {
     let text = 'Вы не авторизованы, пожалуйста перейдите по ссылке ниже<br><a href ="http://thebrand.com/account">Авторизоваться</a>';
-    let paddingTop = '45px';
-    let distanceToLeft = '25%';
-    showAnswer(text, paddingTop, distanceToLeft);
+    let distanceToLeft = '39%';
+    showAnswer(text, distanceToLeft);
 }
 
-function showAnswer(text, paddingTop, distanceToLeft) {
+function showAnswer(text, distanceToLeft) {
     $('.shadow').css('display', 'block');
     let headerClass = $('.header'); 
     let answerBlock = $('<div></div>', {
@@ -69,7 +67,6 @@ function showAnswer(text, paddingTop, distanceToLeft) {
     let answerText = $(`<p class="answer__text">${text}</p>`);
     answerText.appendTo(answerBlock);
     answerBlock.appendTo(headerClass);
-    answerText.css('padding-top', `${paddingTop}`);
     answerBlock.css('left', `${distanceToLeft}`);
     closeAnswerAfterSomeTime();
     closeAnswerAfterClickOnWindow();
@@ -82,19 +79,19 @@ function closeAnswerAfterSomeTime () {
     }, 2500);
 }
 
-function checkPropertiesOfObjectSession (session) {
-    for (let key in session) {
-        return true;
-    }
-    return false;
-}
-
 function closeAnswerAfterClickOnWindow () {
     $('.shadow').on('click', function (e) {
         if (e.target == $('.shadow')[0]) {
             deleteAnswer();
         }
     })
+}
+
+function checkPropertiesOfObjectSession (session) {
+    for (let key in session) {
+        return true;
+    }
+    return false;
 }
 
 function deleteAnswer () {
@@ -109,7 +106,6 @@ function findProduct (product) {
         let count = product.count;
         let color = product.color;
         let size = product.size;
-        console.log(allIdenticProducts);
         if (allIdenticProducts.length !== 0) {
             increaseProductCounter(singlePath, count, color, size);
         } else {

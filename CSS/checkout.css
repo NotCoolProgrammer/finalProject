@@ -27,7 +27,10 @@
 }
 
 .delivery .shipping__address__form {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .delivery .shipping__address__form__name, .delivery .shipping__address__form__surname, .delivery .shipping__address__form__city, .delivery .shipping__address__form__postcode, .delivery .shipping__address__form select {
@@ -61,8 +64,12 @@
 .delivery .shipping__address__form .option__6,
 .delivery .shipping__address__form .option__7,
 .delivery .shipping__address__form .option__8 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 10px 0;
 }
 
@@ -76,6 +83,8 @@
 
 .delivery .shipping__address__final_info {
   margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -99,7 +108,10 @@
   color: #ffffff;
   font-size: 15px;
   letter-spacing: 0.38px;
+  -webkit-transition: color 0.8s, -webkit-box-shadow 0.5s;
+  transition: color 0.8s, -webkit-box-shadow 0.5s;
   transition: color 0.8s, box-shadow 0.5s;
+  transition: color 0.8s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
   border: none;
   outline: none;
   position: absolute;
@@ -109,7 +121,8 @@
 
 .delivery .shipping__address__final .send__to__processing:hover {
   color: #222222;
-  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
 }
 /*# sourceMappingURL=checkout.css.map */

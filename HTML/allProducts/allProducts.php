@@ -20,12 +20,6 @@
 
                 </div>
             </div>
-            <div class="size">
-                <h2 class="product__materials__header">size</h2>
-                <div class="size__label" id ="size__label">
-
-                </div>
-            </div>
             <div class="price">
                 <h2 class="product__materials__header">price</h2>
                 <div class="price__slider">

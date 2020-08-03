@@ -48,27 +48,25 @@ function sendEmail () {
         $('.warning__email').css('display', 'none');
         $.post('/sendEmail', email, function (data) {
             positiveResultOfSendingEmail()
-            $('.subscribe__form')[0].reset();
+            $('#email').val('');
         }).fail(function () {
             negativeResultOfSendingEmail();
-            $('.subscribe__form')[0].reset();
+            $('#email').val('');
         })
     }
 }
 
 function positiveResultOfSendingEmail() {
     let answer = 'Спасибо за подписку<br>В скором времени вам на почту придет что нибудь <br> интересное от нас';
-    let height = '150px';
-    answerBlock(answer, height);
+    answerBlock(answer);
 }
 
 function negativeResultOfSendingEmail () {
     let answer = 'Не удалось отправить письмо на указанныый email <br> Попробуйте позже';
-    let height = '130px';
-    answerBlock(answer, height);
+    answerBlock(answer);
 }
 
-function answerBlock(answer, height) {
+function answerBlock(answer) {
     $('.shadow').css('display', 'block');
     let headerClass = $('.header'); 
     let answerBlock = $('<div></div>', {
@@ -78,8 +76,7 @@ function answerBlock(answer, height) {
     answerText.appendTo(answerBlock);
     answerBlock.appendTo(headerClass);
     $('.answer__block').css({
-        left: '29%',
-        height: height
+        left: '39%',
     });
     $('.answer__text').css('padding-top', '38px');
     closeAnswerAfterSomeTime();

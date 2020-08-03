@@ -133,7 +133,7 @@ $handleAuth = function () {
 
     
     $user = $callTheDbClass -> findUser($login);
-
+    
     if ($adminsBool === true) {
         authorizeUser($admin);
         header('Location: /adminPage');
@@ -158,12 +158,12 @@ $registerUser = function () {
     $password = $_POST['password1'];
 
     if (!empty($_FILES['image'])) {
-        $folder = '/home/sasha/Desktop/domains/ProgSchool/finalProject/uploads';
+        $folder = '/home/sasha/desktop/finalProject/uploads';
         $additionalFunction = new additionalFunctions();
         $file_path = $additionalFunction -> upload_image($_FILES['image'], $folder);
         $file_path_exploded = explode('/', $file_path);
         $filename = $file_path_exploded[count($file_path_exploded) - 1];
-        $file_url = 'http://theBrand.com/uploads/'.$filename;
+        $file_url = 'http://thebrand.com/uploads/'.$filename;
     }
 
     $register = new CRUD();
@@ -180,9 +180,6 @@ $authorizedUser = function () {
 };
 
 $logout = function () {
-    // $session = returnSession();
-    // $DB = new WorkWithDB();
-    // $DB -> deleteAllProducts($session['id']);
     session_destroy();
     header('Location: /');
     die();
@@ -323,7 +320,7 @@ $checkEnteredCouponNameWithUsersCouponName = function () {
     echo $result;
 };
 
-$addCouponInShoppingCard = function () {
+$addCouponInShoppingCart = function () {
     $DB = new WorkWithDB();
     $user = returnSession();
     $idCoupon = $_POST['coupon']['id'];
@@ -425,7 +422,7 @@ $routes = [
     '/checkEmails' => $checkEmails,
     '/checkPassword' => $checkPassword,
     '/checkEnteredCouponNameWithUsersCouponName' => $checkEnteredCouponNameWithUsersCouponName,
-    '/addCouponInShoppingCard' => $addCouponInShoppingCard,
+    '/addCouponInShoppingCart' => $addCouponInShoppingCart,
     '/getInfoAboutCoupons' => $getInfoAboutCoupons,
     '/deleteCoupon' => $deleteCoupon,
     '/sendEmail' => $sendEmail,

@@ -1,16 +1,12 @@
 'use strict';
 
 $(document).ready(function () {
-    // $.post('/getAllSizes', {}, function (data) {
-    //     generateSizes(data);
-    // })
 
     $.post('/allGoods', {}, function (products) {
         let allProducts = JSON.parse(products);
         generateMaterialsOfProducts(allProducts);
         generateCollection(allProducts);
         generateDesigners(allProducts);
-        generateAllSizes(allProducts);
         deleteLastSeparator();
     })
 
@@ -26,17 +22,6 @@ $(document).ready(function () {
     });
 
 })
-
-// function generateSizes (data) {
-//     let allSizes = JSON.parse(data);
-//     let blockForSizes = $('.size__label');
-//     for (let i = 0; i < allSizes.length; i++) {
-//         $(`
-//             <input type="checkbox" id="${allSizes[i].size}" name="${allSizes[i].size}" class="checkbox">
-//             <label for="${allSizes[i].size}">${allSizes[i].size}</label>
-//         `).appendTo(blockForSizes);
-//     }
-// }
 
 function generateMaterialsOfProducts(allProducts) {
     let materialComponents = $('.product__materials__components');
@@ -82,23 +67,6 @@ function generateDesigners (allProducts) {
 
     for (let i = 0; i < allDesigners.length; i++) {
         $(`<li class ="drop__li"><span class="drop__link">${allDesigners[i]}</span></li>`).appendTo(collectionDesigners);
-    }
-}
-
-function generateAllSizes (products) {
-    let arrayOfSizes = [];
-    for (let i = 0; i < products.length; i++) {
-        let tempArray = JSON.parse(products[i].json_agg);
-        arrayOfSizes.push(tempArray);
-    }
-    let index = indexOfLongest(arrayOfSizes);
-
-    let blockForSizes = $('.size__label');
-    for (let i = 0; i < arrayOfSizes[index].length; i++) {
-        $(`
-            <input type="checkbox" id="${arrayOfSizes[index][i]}" name="${arrayOfSizes[index][i]}" class="checkbox">
-            <label for="${arrayOfSizes[index][i]}">${arrayOfSizes[index][i]}</label>
-        `).appendTo(blockForSizes);
     }
 }
 
