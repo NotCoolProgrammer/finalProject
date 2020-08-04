@@ -14,7 +14,7 @@ $(document).ready(function () {
     $.post('/allGoods', {}, function (data) {
         let allProducts = JSON.parse(data);
         let ul = $(`<ul class = "found__products"></ul>`);
-        let header = $('.header__left');
+        let header = $('.header__form');
         ul.appendTo(header);
 
         allProducts.forEach(function (product) {
@@ -95,37 +95,20 @@ function generateReviews (data) {
         let reviews = $(`<div class ="feedback__bg1 bxbb flex reviews"></div>`);
         $(reviews).prependTo($('.feedback__bg'));
         allReviewsData.forEach(review => {
-            if (review.image === null) {
-                let reviewBlock = $(`<div class="flex review"><div/>`);
-                $(`
-                    <img class="feedback__circle" src="/img/avatars/anonim.jpg" alt="">
-                    <div class="feedback__bg1__text bxbb">
-                        <p class="feedback__comment">${review.userreview}</p>
-                        <div class="stars">
-                        </div>
-                        <div class="name__surname">
-                            <p class="name">${review.name}</p>
-                            <p class="surname">${review.surname}</p>
-                        </div>
+            let reviewBlock = $(`<div class="flex review"><div/>`);
+            $(`
+                <img class="feedback__circle" src="${review.image}" alt="">
+                <div class="feedback__bg1__text bxbb">
+                    <p class="feedback__comment">${review.userreview}</p>
+                    <div class="stars">
                     </div>
-                `).appendTo(reviewBlock);
-                reviewBlock.appendTo(reviews);
-            } else {
-                let reviewBlock = $(`<div class="flex review"><div/>`);
-                $(`
-                    <img class="feedback__circle" src="${review.image}" alt="">
-                    <div class="feedback__bg1__text bxbb">
-                        <p class="feedback__comment">${review.userreview}</p>
-                        <div class="stars">
-                        </div>
-                        <div class="name__surname">
-                            <p class="name">${review.name}</p>
-                            <p class="surname">${review.surname}</p>
-                        </div>
+                    <div class="name__surname">
+                        <p class="name">${review.name}</p>
+                        <p class="surname">${review.surname}</p>
                     </div>
-                `).appendTo(reviewBlock);
-                reviewBlock.appendTo(reviews);
-            }
+                </div>
+            `).appendTo(reviewBlock);
+            reviewBlock.appendTo(reviews);
         })
     
         let allStarsFromUser = $('.stars');

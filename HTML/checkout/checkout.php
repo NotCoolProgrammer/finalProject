@@ -21,7 +21,9 @@
                     <option>--Выберите город--</option>
                 </select>
                 <input type="text" placeholder="City" class="shipping__address__form__city" name="city" id="city">
+                <p class="wrong__city">Такого города нет в списке</p>
                 <input type="text" placeholder="Postcode / Zip" class="shipping__address__form__postcode" name="postcode">
+                <p class="wrong__post__code">Неправильно введен почтовый индекс (от 5 цифр) </p>
             </form>
         </div>
 
@@ -72,9 +74,9 @@
         <div class="shipping__address">
             <div class="shipping__address__final">
                 <p class="shipping__address__final_info">Количество товара - <span class="count__of__products"></span></p>
-                <p class="shipping__address__final_info">Общая стоимость покупки - <span class="total__purchase__price"></span></p>
+                <p class="shipping__address__final_info">Общая стоимость покупки - <span class="total__purchase__price"></span> <span class ="monetary__currency">$</span></p>
                 <p class="shipping__address__final_info">Адрес доставки - <span class="city">г. </span> <span class="delivery__address"></span></p>
-                <p class="shipping__address__final_info">Почтовый индекс - <span class="postal__code"></span></p>  
+                <p class="shipping__address__final_info">Почтовый индекс - <span class="post__code"></span></p>  
                 <p class="shipping__address__final_info">Метод доставки - <span class="delivery__method"></span></p> 
                 <p class="shipping__address__final_info">Получатель - 
                     <span class="recipient">

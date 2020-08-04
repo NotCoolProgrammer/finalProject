@@ -9,91 +9,56 @@ $(document).ready(function () {
     generateStates();
 
     $('.shipping__address__form__states').change(function (e) {
-        let selectVal = $(e.currentTarget).val();
-        $.post('/getAllCitiesInTheCountry', {selectVal}, function (data) {
+        let selectedState = $(e.currentTarget).val();
+        $.post('/getAllCitiesInTheCountry', {selectedState}, function (data) {
             let allCities = JSON.parse(data);
-            let arrayCities = [];
-            for (let i = 0; i < allCities.length; i++) {
-                arrayCities.push(allCities[i].name);
-            }
-            $('#city').autocomplete({
-                source: arrayCities,
-                classes: {
-                    'ui-autocomplete': 'autocomplete__components'
-                }
-            })
+            fillInTheCityField (allCities);
         })
     })
 
     $.post('/getUsersProducts', {}, function (data) {
-        getAllInfoAboutCheckout(data);
+        let allUsersProducts = JSON.parse(data);
+        fillInTheDataAboutTheOrder (allUsersProducts);
     });
 
-    $('.send__to__processing').on('click', function () {
-        // отправить все данные из таблицы users_products в новую, вывести скрытый блок и написать, что заказ сформирован;
-        // на стороне админа получить карточку с инфой по каждому пользователю, с его всей информацией по доставке, количеству
-        // товара (подобно корзине карточки)
-        // сделать на стороне админа возможность переводить заказ в статус "в обработке" и "доставлен" чекбоксами
-        $.post('/getUsersProducts', {}, function (data) {
-            let allProducts = JSON.parse(data);
-            let countOfProducts = 0;
-            let totalPrice = 0;
-            let deliveryAddress = $('.delivery__address')[0].textContent;
-            let recipientName = $('.recipient__name')[0].textContent;
-            let recipientSurname = $('.recipient__surname')[0].textContent;
-            let postalCode = Number($('.postal__code')[0].textContent);
-            let deliveryMethod = $('.delivery__method')[0].textContent;
-            let paymentMethod = $('.payment__method')[0].textContent;
-            let status = 'Not done';
-            for (let i = 0; i < allProducts.length; i++) {
-                countOfProducts += Number(allProducts[i].count);
-                totalPrice += Number(allProducts[i].price) * Number(allProducts[i].count);
-            }
+})
 
-            let objectOfTheOrder = {
-                countOfProducts: countOfProducts,
-                totalPrice: totalPrice,
-                deliveryAddress: deliveryAddress,
-                postalCode: postalCode,
-                deliveryMethod: deliveryMethod,
-                recipientName: recipientName,
-                recipientSurname: recipientSurname,
-                paymentMethod: paymentMethod,
-                status: status
-            };
 
-            console.log(objectOfTheOrder);
-        });
-        $.post('/transferAnOrderToAnotherStatus' , objectOfTheOrder, function () {
+function fillInTheCityField (allCities) {
+    let arrayCities = [];
+    for (let i = 0; i < allCities.length; i++) {
+        arrayCities.push(allCities[i].city);
+    }
 
-        })
+    $('#city').autocomplete({
+        source: arrayCities,
+        classes: {
+            'ui-autocomplete': 'autocomplete__components'
+        }
     })
 
-})
+    $('.shipping__address__form__city').change(function (e) {
+        let selectedCity = $(e.currentTarget).val();
+        compareEnteredCityWithTheExistingOne (arrayCities, selectedCity);
+    });
+}
 
 function generateStates () {
     let select = $('.shipping__address__form__states');
     $.post('/getAllStates', {}, function (data) {
         let allStates = JSON.parse(data);
         for (let i = 0; i < allStates.length; i++) {
-            $(`<option>${allStates[i].name}</option>`).appendTo(select);
+            $(`<option>${allStates[i].state}</option>`).appendTo(select);
         }
     });
 }
 
-
-function getAllInfoAboutCheckout (data) {
-    let allUsersProducts = JSON.parse(data);
+function fillInTheDataAboutTheOrder (allUsersProducts) {
     let countOfProductsBlock = $('.count__of__products');
     let totalPriceBlock = $('.total__purchase__price');
-    let deliveryAddressBlock = $('.delivery__address');
-    let deliveryMethodBlock = $('.delivery__method');
     let recipientBlockName = $('.recipient__name');
     let recipientBlockSurname = $('.recipient__surname');
-    let paymentMethodBlock = $('.payment__method');
-    let postalCodeBlock = $('.postal__code');
-
-
+    let postCodeBlock = $('.post__code');
     let userName = $('.shipping__address__form__name').val();
     let userSurname = $('.shipping__address__form__surname').val();
     let countOfProducts = 0;
@@ -104,6 +69,9 @@ function getAllInfoAboutCheckout (data) {
         totalPrice += Number(allUsersProducts[i].price) * Number(allUsersProducts[i].count);
     }
 
+    $('.total__purchase__price').css('padding-right', 0);
+    $('.monetary__currency').css('padding', 0);
+
     recipientBlockName[0].textContent = userName;
     recipientBlockSurname[0].textContent = userSurname;
     countOfProductsBlock[0].textContent = countOfProducts;
@@ -111,24 +79,129 @@ function getAllInfoAboutCheckout (data) {
 
     $('.city').css('display', 'none');
 
-    $('.shipping__address__form__city').change(function () {
-        if ($('.shipping__address__form__city').val() === '') {
-            $('.city').css('display', 'none');
-        } else {
-            deliveryAddressBlock[0].textContent = $('.shipping__address__form__city').val();
-            $('.city').css('display', 'block');
-        }
-    })
-
     $('.shipping__address__form_radio1').change(function () {
+        let deliveryMethodBlock = $('.delivery__method');
         deliveryMethodBlock[0].textContent = $('#form2 input:checked').val();
     })
 
     $('.shipping__address__form_radio2').change(function () {
+        let paymentMethodBlock = $('.payment__method');
         paymentMethodBlock[0].textContent = $('#form3 input:checked').val();
     })
 
     $('.shipping__address__form__postcode').change(function () {
-        postalCodeBlock[0].textContent = $('.shipping__address__form__postcode').val();
+        let postCode = $('.shipping__address__form__postcode').val();
+        if (postCode.length < 5) {
+            $('.wrong__post__code').css('display', 'block');
+            $('.shipping__address__form__postcode').css('margin-bottom', '0px');
+        } else {
+            $('.wrong__post__code').css('display', 'none');
+            $('.shipping__address__form__postcode').css('margin-bottom', '20px');
+            postCodeBlock[0].textContent = $('.shipping__address__form__postcode').val();
+        }
     })
+
+    $('.send__to__processing').on('click', function () {
+        validateDataBeforeSendItToAdmins (countOfProducts, totalPrice);
+    })
+}
+
+function compareEnteredCityWithTheExistingOne (arrayCities, selectedCity) {
+    if (arrayCities.indexOf(selectedCity) == -1) {
+        $('.wrong__city').css('display', 'block');
+        $('.shipping__address__form__city').css('margin-bottom', '0px');
+    } else {
+        $('.wrong__city').css('display', 'none');
+        $('.shipping__address__form__city').css('margin-bottom', '20px');
+        $('.delivery__address')[0].textContent = $('.shipping__address__form__city').val();
+        $('.city').css('display', 'block');
+    }
+}
+
+function validateDataBeforeSendItToAdmins (countOfProducts, totalPrice) {
+
+    let deliveryAddress = $('.shipping__address__form__city').val();
+    let recipientName = $('.shipping__address__form__name').val();
+    let recipientSurname = $('.shipping__address__form__surname').val();
+    let deliveryMethod = $('#form2 input:checked').val();
+    let paymentMethod = $('#form3 input:checked').val();
+    let postCode = $('.shipping__address__form__postcode').val();
+
+    if (deliveryAddress.length !== 0 && $('.wrong__city').css('display') === "none" && postCode.length > 5 && deliveryMethod && paymentMethod) {
+        sendDataToAdmins(countOfProducts, totalPrice, deliveryAddress, postCode, deliveryMethod, recipientName, recipientSurname, paymentMethod);
+    } else {
+        incorrectData();
+    }
+}
+
+function sendDataToAdmins (countOfProducts, totalPrice, deliveryAddress, postCode, deliveryMethod, recipientName, recipientSurname, paymentMethod) {
+    let objectOfTheOrder = {
+        countOfProducts: countOfProducts,
+        totalPrice: totalPrice,
+        deliveryAddress: deliveryAddress,
+        postCode: postCode,
+        deliveryMethod: deliveryMethod,
+        recipientName: recipientName,
+        recipientSurname: recipientSurname,
+        paymentMethod: paymentMethod
+    };
+
+    $.post('/transferAnOrderToAnotherStatus' , objectOfTheOrder, function () {
+        positiveAnswer();
+    }).fail(function () {
+        negativeAnswer();
+    })
+}
+
+function incorrectData () {
+    let text = 'Не заполнены все данные, пожалуйста проверьте еще раз всю информацию';
+    let distanceToLeft = '39%';
+    showAnswer(text, distanceToLeft);
+}
+
+function positiveAnswer () {
+    let text = 'Ваш заказ оформлен. В ближайшее время с вами свяжутся';
+    let distanceToLeft = '39%';
+    showAnswer(text, distanceToLeft);
+}
+
+function negativeAnswer () {
+    let text = 'Не удалось оформить заказ, попробуйте немного позже';
+    let distanceToLeft = '39%';
+    showAnswer(text, distanceToLeft);
+}
+
+function showAnswer(text, distanceToLeft) {
+    $('.shadow').css('display', 'block');
+    let headerClass = $('.header'); 
+    let answerBlock = $('<div></div>', {
+        class: 'answer__block'
+    });
+
+    let answerText = $(`<p class="answer__text">${text}</p>`);
+    answerText.appendTo(answerBlock);
+    answerBlock.appendTo(headerClass);
+    answerBlock.css('left', `${distanceToLeft}`);
+    closeAnswerAfterSomeTime();
+    closeAnswerAfterClickOnWindow();
+}
+
+function closeAnswerAfterSomeTime () {
+    setTimeout(() => {
+        $('.shadow').css('display', 'none');
+        $('.answer__block').remove();
+    }, 2500);
+}
+
+function closeAnswerAfterClickOnWindow () {
+    $('.shadow').on('click', function (e) {
+        if (e.target == $('.shadow')[0]) {
+            deleteAnswer();
+        }
+    })
+}
+
+function deleteAnswer () {
+    $('.shadow').css('display', 'none');
+    $('.answer__block').remove();
 }

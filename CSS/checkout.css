@@ -77,6 +77,14 @@
   margin-left: 15px;
 }
 
+.delivery .shipping__address__form .wrong__city, .delivery .shipping__address__form .wrong__post__code {
+  margin-top: 9px;
+  margin-bottom: 9px;
+  font-size: 15px;
+  color: red;
+  display: none;
+}
+
 .delivery .shipping__address__final {
   position: relative;
 }

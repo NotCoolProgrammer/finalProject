@@ -103,9 +103,9 @@ function generalAnswer (text) {
     answerText.appendTo(answerBlock);
     answerBlock.appendTo(headerClass);
     if (text.length < 50) {
-         $('.answer__block').css('left', '36%');
+         $('.answer__block').css('left', '39%');
     } else {
-        $('.answer__block').css('left', '28%');
+        $('.answer__block').css('left', '39%');
     }
     closeAnswerAfterSomeTime();
     closeAnswerAfterClickOnWindow();

@@ -147,10 +147,10 @@ class WorkWithDB {
         $query -> execute([$idUser]);
     }
 
-    function uploadReview ($firstName, $lastName, $countOfActiveStars, $comment) {
+    function uploadReview ($firstName, $lastName, $countOfActiveStars, $comment, $imageOfAnUnathorizedUser) {
         $pdo = connection();
-        $query = $pdo -> prepare('insert into userReviews (name, surname, siteRating, userReview) values (?, ?, ?, ?)');
-        $query -> execute([$firstName, $lastName, $countOfActiveStars, $comment]);
+        $query = $pdo -> prepare('insert into userReviews (name, surname, siteRating, userReview, image) values (?, ?, ?, ?, ?)');
+        $query -> execute([$firstName, $lastName, $countOfActiveStars, $comment, $imageOfAnUnathorizedUser]);
     }
 
     function uploadReview2 ($userId, $firstName, $lastName, $countOfActiveStars, $comment, $userImage) {
@@ -185,13 +185,13 @@ class WorkWithDB {
 
     function getAllCities ($state) {
         $pdo = connection();
-        $query = $pdo -> prepare('select cities.name
+        $query = $pdo -> prepare('select cities.city
                 from cities
                 left join states s on cities.id_state = s.id
-                where s.name = ?');
+                where s.state = ?');
         $query -> execute([$state]);
-        $allStates = $query -> fetchAll();
-        return json_encode($allStates);
+        $allCities = $query -> fetchAll();
+        return json_encode($allCities);
     }
 
     function getAllUsers () {       //под вопросом
@@ -271,10 +271,11 @@ class WorkWithDB {
         return json_encode($adminInfo);
     }
 
-    function provideInfoAboutOrderToAdmins ($countOfProducts, $totalPrice, $deliveryAddress, $postalCode, $deliveryMethod, $recipientName, $recipientSurname, $paymentMethod, $status, $userMobile) {
+    function provideInfoAboutOrderToAdmins ($countOfProducts, $totalPrice, $deliveryAddress, $postCode, $deliveryMethod, $recipientName, $recipientSurname, $paymentMethod, $userMobile) {
         $pdo = connection();
-        $query = $pdo -> prepare("");
-        $query -> execute();
+        $query = $pdo -> prepare("insert into admin_work (countOfProducts, totalPrice, deliveryAddress, postCode, deliveryMethod, recipientName, recipientSurname, paymentMethod, userMobile) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $query -> execute([$countOfProducts, $totalPrice, $deliveryAddress, $postCode, $deliveryMethod, $recipientName, $recipientSurname, $paymentMethod, $userMobile]);
     }
 
 }

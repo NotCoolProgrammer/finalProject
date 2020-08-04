@@ -1,7 +1,6 @@
 /* Slider */
 .slick-slider {
   position: relative;
-  display: block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-touch-callout: none;

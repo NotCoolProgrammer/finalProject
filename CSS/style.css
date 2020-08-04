@@ -57,6 +57,7 @@ a {
 
 .header__form {
   margin-left: 37px;
+  position: relative;
 }
 
 .header__cart {
@@ -200,8 +201,8 @@ a {
 .found__products {
   position: absolute;
   background-color: #fff;
-  top: 70px;
-  left: 401px;
+  top: 40px;
+  left: 90px;
   width: 297px;
   z-index: 1001;
   max-height: 300px;

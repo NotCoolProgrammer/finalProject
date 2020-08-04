@@ -255,9 +255,10 @@ $uploadReview = function () {
     $comment = $_POST['comment'];
     $userId = $_POST['idUser'];
     $userImage = $_POST['userImage'];
+    $imageOfAnUnathorizedUser = '/img/avatars/anonim.jpg';
 
     if ($userId === '') {
-        $DB -> uploadReview($name, $surname, $countOfActiveStars, $comment);
+        $DB -> uploadReview($name, $surname, $countOfActiveStars, $comment, $imageOfAnUnathorizedUser);
     } else if ($userId !== '') {
         $DB -> uploadReview2($userId, $user['firstname'], $user['lastname'], $countOfActiveStars, $comment, $userImage);
     }
@@ -283,7 +284,7 @@ $getAllStates = function () {
 };
 
 $getAllCitiesInTheCountry = function () {
-    $state = $_POST['selectVal'];
+    $state = $_POST['selectedState'];
     $DB = new WorkWithDB();
     $allCitiesInTheCountry = $DB -> getAllCities($state);
     echo $allCitiesInTheCountry;
@@ -374,7 +375,7 @@ $getSessionOfUser = function () {
 };
 
 $adminPage = function () {
-    // $addressOfCssFile = ''
+    $addressOfCssFile = '../CSS/adminPage.css';
     require 'HTML/adminPage/adminPage.php';
     die();
 };
@@ -383,17 +384,16 @@ $transferAnOrderToAnotherStatus = function () {
     $countOfProducts = $_POST['countOfProducts'];
     $totalPrice = $_POST['totalPrice'];
     $deliveryAddress = $_POST['deliveryAddress'];
-    $postalCode = $_POST['postalCode'];
+    $postCode = $_POST['postCode'];
     $deliveryMethod = $_POST['deliveryMethod'];
     $recipientName = $_POST['recipientName'];
     $recipientSurname = $_POST['recipientSurname'];
     $paymentMethod = $_POST['paymentMethod'];
-    $status = $_POST['status'];
     $session = returnSession();
     $userMobile = $session['mobile'];
     $DB = new WorkWithDB();
-    $DB -> provideInfoAboutOrderToAdmins($countOfProducts, $totalPrice, $deliveryAddress, $postalCode, $deliveryMethod, $recipientName, $recipientSurname, $paymentMethod, $status, $userMobile);
-    $DB -> deleteAllProducts($session['id']);
+    $DB -> provideInfoAboutOrderToAdmins($countOfProducts, $totalPrice, $deliveryAddress, $postCode, $deliveryMethod, $recipientName, $recipientSurname, $paymentMethod, $userMobile);
+    // $DB -> deleteAllProducts($session['id']);
 };
 
 $routes = [
