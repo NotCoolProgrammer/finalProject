@@ -12,7 +12,7 @@ function equals ($thisValue) {
     };
 };
 
-function authorizeUser ($user) {
+function authorizeUser ($user) {    
     $_SESSION["currentUser"] = $user;
 };
 
@@ -98,15 +98,29 @@ $shoppingCart = function () {
     $valueOfRequestMethod = $request -> serverMethor();
     $idUser = $_SESSION['currentUser']['id'];
     if ($valueOfRequestMethod == 'POST' && isset($_SESSION['currentUser'])) {
-        $idProduct = $_POST['id'];
-        $productName = $_POST['name'];
-        $productPrice = $_POST['price'];
-        $productColor = $_POST['color'];
-        $productSize = $_POST['size'];
-        $productCount = $_POST['count'];
-        $productSingleView = $_POST['singleview'];
-        $productImg = $_POST['img'];
+        $idProduct = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
+        $productName = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+        $productPrice = filter_var($_POST['price'], FILTER_SANITIZE_NUMBER_INT) ;
+        $productColor = filter_var($_POST['color'], FILTER_SANITIZE_STRING);
+        $productSize = filter_var($_POST['size'], FILTER_SANITIZE_STRING) ;
+        $productCount = filter_var($_POST['count'], FILTER_SANITIZE_NUMBER_INT);
+        $productSingleView = filter_var($_POST['singleview'], FILTER_SANITIZE_STRING);
+        $productImg = filter_var($_POST['img'], FILTER_SANITIZE_STRING);
+
+            
         $DB -> addProductToCart($idProduct, $idUser, $productName, $productPrice, $productColor, $productSize, $productCount, $productSingleView, $productImg);
+
+        $existingPricesForUserProducts = $DB -> existingUserProducts($idUser);
+        if (count($existingPricesForUserProducts) === 1) {
+            $totalPrice = $productPrice * $productCount;
+        } else if (count($existingPricesForUserProducts) > 1) {
+            for ($i = 0; $i < count($existingPricesForUserProducts); $i++) {
+                $totalPrice += $existingPricesForUserProducts[$i]['current_price'];
+            }
+        }
+
+        $DB -> setTotalPrice($totalPrice, $idUser);
+
     }
     $userProducts = json_encode($DB -> getUsersProducts($idUser));
     $addressOfCssFile = '../CSS/shoppingCart.css';
@@ -192,11 +206,11 @@ $handleAuth = function () {
 };
 
 $registerUser = function () {
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $login = $_POST['login'];
-    $mobile = $_POST['mobile'];
-    $password = $_POST['password1'];
+    $firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
+    $lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
+    $login = filter_var($_POST['login'], FILTER_SANITIZE_STRING);
+    $mobile = filter_var($_POST['mobile'], FILTER_SANITIZE_NUMBER_INT);
+    $password = filter_var($_POST['password1'], FILTER_SANITIZE_STRING);
 
     if (!empty($_FILES['image'])) {
         $folder = '/home/sasha/desktop/finalProject/uploads';
@@ -234,7 +248,7 @@ $deleteAllProducts = function () {
 };
 
 $deleteOneProduct = function () {
-    $idOfSpecificProduct = $_POST['idOfSpecificProduct'];
+    $idOfSpecificProduct = filter_var($_POST['idOfSpecificProduct'], FILTER_SANITIZE_NUMBER_INT);
     $idUser = $_SESSION['currentUser']['id'];
     $DB = new WorkWithDB();
     $DB -> deleteOneProduct($idUser, $idOfSpecificProduct);
@@ -258,19 +272,19 @@ $editUserPage = function () {
 $editUser = function () {
     $session = returnSession();
     $userId = $session['id'];
-    $login = $_POST['login'];
-    $mobile = $_POST['mobile'];
-    $password1 = $_POST['password1'];
-    $password2 = $_POST['password2'];
+    $login = filter_var($_POST['login'], FILTER_SANITIZE_STRING);
+    $mobile = filter_var($_POST['mobile'], FILTER_SANITIZE_NUMBER_INT);
+    $password1 = filter_var($_POST['password1'], FILTER_SANITIZE_STRING);
+    $password2 = filter_var($_POST['password2'], FILTER_SANITIZE_STRING);
 
 
     if (!empty($_FILES['image'])) {
-        $folder = '/home/sasha/Desktop/domains/ProgSchool/finalProject/uploads';
+        $folder = '/home/sasha/desktop/finalProject/uploads';
         $additionalFunction = new additionalFunctions();
         $file_path = $additionalFunction -> upload_image($_FILES['image'], $folder);
         $file_path_exploded = explode('/', $file_path);
         $filename = $file_path_exploded[count($file_path_exploded) - 1];
-        $file_url = 'http://theBrand.com/uploads/'.$filename;
+        $file_url = 'http://thebrand.com/uploads/'.$filename;
     }
 
     $processOfEditingUser = new CRUD();
@@ -284,7 +298,7 @@ $editUser = function () {
 };
 
 $deleteUser = function () {
-    $idUser = $_POST['id'];
+    $idUser = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
     $DB = new WorkWithDB();
     $DB-> deleteUser($idUser);
     session_destroy();
@@ -295,12 +309,12 @@ $uploadReview = function () {
     $session = returnSession();
     $DB = new WorkWithDB();
     $user = $DB -> findUser($session['login']);
-    $countOfActiveStars = $_POST['countOfActiveStars'];
-    $name = $_POST['name'];
-    $surname = $_POST['surname'];
-    $comment = $_POST['comment'];
-    $userId = $_POST['idUser'];
-    $userImage = $_POST['userImage'];
+    $countOfActiveStars = filter_var($_POST['countOfActiveStars'], FILTER_SANITIZE_NUMBER_INT);
+    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+    $surname = filter_var($_POST['surname'], FILTER_SANITIZE_STRING);
+    $comment = filter_var($_POST['comment'], FILTER_SANITIZE_STRING);
+    $userId = filter_var($_POST['idUser'], FILTER_SANITIZE_NUMBER_INT);
+    $userImage = filter_var($_POST['userImage'], FILTER_SANITIZE_STRING);
     $imageOfAnUnathorizedUser = '/img/avatars/anonim.jpg';
 
     if ($userId === '') {
@@ -317,7 +331,7 @@ $getAllInfoAboutReviews = function () {
 };
 
 $checkCoupon = function () {
-    $coupon = $_POST['couponVal'];
+    $coupon = filter_var($_POST['couponVal'], FILTER_SANITIZE_STRING);
     $DB = new WorkWithDB();
     $resultOfCheck = $DB -> checkCoupon($coupon);
     echo $resultOfCheck;
@@ -330,7 +344,7 @@ $getAllStates = function () {
 };
 
 $getAllCitiesInTheCountry = function () {
-    $state = $_POST['selectedState'];
+    $state = filter_var($_POST['selectedState'], FILTER_SANITIZE_STRING);
     $DB = new WorkWithDB();
     $allCitiesInTheCountry = $DB -> getAllCities($state);
     echo $allCitiesInTheCountry;
@@ -345,14 +359,14 @@ $getUsersProducts = function () {
 };
 
 $checkEmails = function () {
-    $email = $_POST['email'];
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
     $checkDataFromDB = new GetSmthWhenInteractingWithDB ();
     $result = $checkDataFromDB -> checkEmails ($email);
     echo json_encode($result);
 };
 
 $checkPassword = function () {
-    $pass = $_POST['password1'];
+    $pass = filter_var($_POST['password1'], FILTER_SANITIZE_STRING);
     $user = returnSession();
     $checkDataFromDB = new GetSmthWhenInteractingWithDB ();
     $result = $checkDataFromDB -> checkPass ($pass, $user);
@@ -361,7 +375,7 @@ $checkPassword = function () {
 
 $checkEnteredCouponNameWithUsersCouponName = function () {
     $user = returnSession();
-    $couponName = $_POST['coupon']['coupon'];
+    $couponName = filter_var($_POST['coupon']['coupon'], FILTER_SANITIZE_STRING);
     $checkCoupon = new GetSmthWhenInteractingWithDB ();
     $result = $checkCoupon -> checkCoupon($couponName, $user['id']);
     echo $result;
@@ -370,9 +384,19 @@ $checkEnteredCouponNameWithUsersCouponName = function () {
 $addCouponInShoppingCart = function () {
     $DB = new WorkWithDB();
     $user = returnSession();
-    $idCoupon = $_POST['coupon']['id'];
+    $idCoupon = filter_var($_POST['coupon']['id'], FILTER_SANITIZE_NUMBER_INT);
+    $discountVal = filter_var($_POST['coupon']['discount']);
+
+    $currentTotalPrice = $DB -> currentTotalPrice($user['id']);
+    $differenceBetweenPrices = ($currentTotalPrice['total_price'] * $discountVal) / 100;
+    $newTotalPrice = $currentTotalPrice['total_price'] - $differenceBetweenPrices;
     $DB -> addCouponToUser ($user['id'], $idCoupon);
+    $DB -> changeTotalPrice($newTotalPrice, $user['id']);
 };
+
+// $temp = function () {
+
+// };
 
 $getInfoAboutCoupons = function () {
     $DB = new WorkWithDB();
@@ -388,7 +412,7 @@ $deleteCoupon = function () {
 };
 
 $sendEmail = function () {
-    $email = $_POST['email'];
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
     if (!isset($email)) {
         $additionalFunction = new additionalFunctions();
         $additionalFunction -> sendEmail($email);
@@ -396,10 +420,10 @@ $sendEmail = function () {
 };
 
 $increaseProductCounterBy1 = function () {
-    $singleProductPath = $_POST['singlePath'];
-    $countFromFront = $_POST['count'];
-    $productColor = $_POST['color'];
-    $productSize = $_POST['size'];
+    $singleProductPath = filter_var($_POST['singlePath'], FILTER_SANITIZE_STRING);
+    $countFromFront = filter_var($_POST['count'], FILTER_SANITIZE_NUMBER_INT);
+    $productColor = filter_var($_POST['color'], FILTER_SANITIZE_STRING);
+    $productSize = filter_var($_POST['size'], FILTER_SANITIZE_STRING);
     $DB = new WorkWithDB();
     $countFromBack = $DB -> findCountOfProduct($singleProductPath, $productColor, $productSize);
     $DB -> increaseProductCounterBy1($countFromFront, $countFromBack['count'], $singleProductPath, $productColor, $productSize);
@@ -407,10 +431,10 @@ $increaseProductCounterBy1 = function () {
 
 $findIdenticalProduct = function () {
     $DB = new WorkWithDB();
-    $idProduct = $_POST['id'];
-    $productColor = $_POST['color'];
-    $productSize = $_POST['size'];
-    $productSingleView = $_POST['singleview'];
+    $idProduct = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
+    $productColor = filter_var($_POST['color'], FILTER_SANITIZE_STRING);
+    $productSize = filter_var($_POST['size'], FILTER_SANITIZE_STRING);
+    $productSingleView = filter_var($_POST['singleview'], FILTER_SANITIZE_STRING);
     $allProducts = $DB -> findIdenticalProduct($idProduct, $productColor, $productSize, $productSingleView);
     echo $allProducts;
 };
@@ -423,27 +447,33 @@ $getSessionOfUser = function () {
 $adminPage = function () {
     $DB = new WorkWithDB();
     $usersOrders = $DB -> getAllInfoAboutTheOrderFromAdminTable();
-    var_dump($usersOrders);
     $addressOfCssFile = '../CSS/adminPage.css';
     require 'HTML/adminPage/adminPage.php';
     die();
 };
 
 $transferAnOrderToAnotherStatus = function () {
-    $countOfProducts = $_POST['countOfProducts'];
-    $totalPrice = $_POST['totalPrice'];
-    $deliveryAddress = $_POST['deliveryAddress'];
-    $postCode = $_POST['postCode'];
-    $deliveryMethod = $_POST['deliveryMethod'];
-    $recipientName = $_POST['recipientName'];
-    $recipientSurname = $_POST['recipientSurname'];
-    $paymentMethod = $_POST['paymentMethod'];
+    $countOfProducts = filter_var($_POST['countOfProducts'], FILTER_SANITIZE_NUMBER_INT);
+    $totalPrice = filter_var($_POST['totalPrice'], FILTER_SANITIZE_NUMBER_INT);
+    $deliveryAddress = filter_var($_POST['deliveryAddress'], FILTER_SANITIZE_STRING);
+    $postCode = filter_var($_POST['postCode'], FILTER_SANITIZE_NUMBER_INT);
+    $deliveryMethod = filter_var($_POST['deliveryMethod'], FILTER_SANITIZE_STRING);
+    $recipientName = filter_var($_POST['recipientName'], FILTER_SANITIZE_STRING);
+    $recipientSurname = filter_var($_POST['recipientSurname'], FILTER_SANITIZE_STRING);
+    $paymentMethod = filter_var($_POST['paymentMethod'], FILTER_SANITIZE_STRING);
     $session = returnSession();
     $userMobile = $session['mobile'];
     $userId = $session['id'];
     $DB = new WorkWithDB();
     $DB -> provideInfoAboutOrderToAdmins($countOfProducts, $totalPrice, $deliveryAddress, $postCode, $deliveryMethod, $recipientName, $recipientSurname, $paymentMethod, $userMobile);
     $DB -> deleteAllProducts($userId);
+};
+
+$changeStatusOfTheOrder = function () {
+    $DB = new WorkWithDB();
+    $newStatusOfTheOrder = filter_var($_POST['statusText'], FILTER_SANITIZE_STRING);
+    $orderId = filter_var($_POST['orderId'], FILTER_SANITIZE_NUMBER_INT);
+    $DB -> changeStatus($newStatusOfTheOrder, $orderId);
 };
 
 $routes = [
@@ -480,7 +510,9 @@ $routes = [
     '/findIdenticalProduct' => $findIdenticalProduct,
     '/getSessionOfUser' => $getSessionOfUser,
     '/adminPage' => $adminPage,
-    '/transferAnOrderToAnotherStatus' => $transferAnOrderToAnotherStatus
+    '/transferAnOrderToAnotherStatus' => $transferAnOrderToAnotherStatus,
+    '/changeStatusOfTheOrder' => $changeStatusOfTheOrder,
+    // '/temp' => $temp
 ];
 
 function go ($routes, $valueOfRequestUri) {

@@ -22,9 +22,19 @@
 }
 
 .categories .order__data p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 17px;
   font-weight: 500;
   line-height: 20px;
+  width: 163px;
 }
 
 .order {
@@ -38,12 +48,40 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 20px 5px;
+  padding: 20px 0px;
+}
+
+.order .order__card .name__surname {
+  width: 163px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .order .order__card p {
-  font-size: 17px;
+  width: 163px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
   font-weight: 500;
   line-height: 20px;
+}
+
+.order .order__card .order__status {
+  width: 163px;
+}
+
+.order .order__card .order__status input {
+  margin-right: 5px;
+}
+
+.order .order__card .order__status .status_1, .order .order__card .order__status .status_2, .order .order__card .order__status .status_3, .order .order__card .order__status .status_4 {
+  margin-left: 20px;
 }
 /*# sourceMappingURL=adminPage.css.map */

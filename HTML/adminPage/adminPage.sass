@@ -17,71 +17,34 @@ $color-text: #222222
         border-bottom: 1px solid #eaeaea
         padding-bottom: 8px;
         & p
+            display: flex
+            justify-content: center
+            align-items: center
             font-size: 17px
             font-weight: 500
             line-height: 20px
+            width: 163px
 
 .order
     align-items: center
-    // padding-top: 30px
     border-bottom: 1px solid #eaeaea
     .order__card
         justify-content: space-between
-        padding: 20px 5px
+        padding: 20px 0px
+        .name__surname
+            width: 163px
+            flex-wrap: wrap
         & p
-            font-size: 17px
+            width: 163px
+            display: flex
+            justify-content: center
+            align-items: center
+            font-size: 18px
             font-weight: 500
             line-height: 20px
-    // padding-bottom: 20px
-    // .unique__cart
-    //     width: 545px
-    //     .cart__img
-    //         align-items: center
-    //         height: 100%
-    //         transition: transform 1s
-    //         & img
-    //             width: 100px
-    //             height: 115px
-    //         &:hover
-    //             transform: scale(1.1)
-    //         .cart_desc
-    //             padding-top: 10px
-    //             .product__name
-    //                 text-transform: uppercase
-    //             p
-    //                 color: #000
-    //                 max-width: 360px
-    //                 padding-left: 20px
-    //             .color
-    //                 color: #000000
-    //                 padding-top: 30px
-    //                 .span_grey
-    //                     color: #575757
-    //                     font-weight: 300
-    // .product__details
-    //     width: 595px
-    //     &__price
-    //         justify-content: center
-    //         align-items: center
-    //     .subtotal__product__currency,
-    //     .subtotal__product__value, 
-    //     .product__count, 
-    //     .product__delivery, 
-    //     .product__details__price
-    //         font-size: 17px
-    //     .product__details__price,
-    //     .product__count,
-    //     .product__delivery,
-    //     .delete__product,
-    //     .subtotal__product__details__price
-    //         width: 20%
-    //         text-align: center
-    //     .delete__product
-    //         color: #c0c0c0
-    //         & i
-    //             font-size: 20px
-    //             transition: color 0.8s, transform 0.6s
-    //             &:hover
-    //                 cursor: pointer
-    //                 color: $accent-color
-    //                 transform: scale(1.5)
+        .order__status
+            width: 163px
+            & input
+                margin-right: 5px
+            .status_1, .status_2, .status_3, .status_4
+                margin-left: 20px

@@ -46,7 +46,7 @@
             <div class="order__card flex">
                 <div class="name__surname flex">
                     <p class="name"><?php echo $usersOrders[$i]['recipientname']?></p>
-                    <p class="surname"><?php echo $order['recipientsurname']?> </p>
+                    <p class="surname"><?php echo $usersOrders[$i]['recipientsurname']?> </p>
                 </div>
 
                 <p class="count__of__products"><?php echo $usersOrders[$i]['countofproducts'] ?></p>
@@ -54,21 +54,21 @@
                 <p class="delivery__address"><?php echo $usersOrders[$i]['deliveryaddress'] ?></p>
                 <p class="post__code"><?php echo $usersOrders[$i]['postcode'] ?></p>
                 <p class="user__mobile"><?php echo $usersOrders[$i]['usermobile'] ?></p>
-                <div class="order__status">
+                <div class="order__status" data-id ="<?php echo $usersOrders[$i]['id'] ?>">
                     <div class="status_1">
-                        <input type="radio" name="<?php echo ($i + 1) ?>status" id = '<?php echo ($i + 1) ?>accepted'/>
-                        <label for="<?php echo ($i + 1) ?>accepted">Принят</label>
+                        <input type="radio" name="<?php echo ($i + 1) ?>status" id = '<?php echo ($i + 1) ?>accepted' data-text="Принят"/>
+                        <label for="<?php echo ($i + 1) ?>accepted"> Принят </label>
                     </div>
                     <div class="status_2">
-                        <input type="radio" name="<?php echo ($i + 1) ?>status" id ="<?php echo ($i + 1) ?>in__treatment"/>
+                        <input type="radio" name="<?php echo ($i + 1) ?>status" id ="<?php echo ($i + 1) ?>in__treatment" data-text="В обработке"/>
                         <label for="<?php echo ($i + 1) ?>in__treatment">В обработке</label>
                     </div>
                     <div class="status_3">
-                        <input type="radio" name="<?php echo ($i + 1) ?>status" id = "<?php echo ($i + 1) ?>delivery"/>
+                        <input type="radio" name="<?php echo ($i + 1) ?>status" id = "<?php echo ($i + 1) ?>delivery" data-text="В пути"/>
                         <label for="<?php echo ($i + 1) ?>delivery">В пути</label>
                     </div>
                     <div class="status_4">
-                        <input type="radio" name="<?php echo ($i + 1) ?>status" id ="<?php echo ($i + 1) ?>delivered"/>
+                        <input type="radio" name="<?php echo ($i + 1) ?>status" id ="<?php echo ($i + 1) ?>delivered" data-text="Доставлен"/>
                         <label for="<?php echo ($i + 1) ?>delivered">Доставлен</label>
                     </div>
                 </div>
@@ -78,4 +78,7 @@
     </section>
 
     <a href="/logout">LogOut</a>
+
+    <script src="/JS/workWithAdminPage.js"></script>
 </body>
+</html>

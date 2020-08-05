@@ -101,12 +101,27 @@ class WorkWithDB {
         }
     }
 
+    function existingUserProducts ($userId) {
+        $pdo = connection();
+        $query = $pdo -> prepare('select (price * count) as current_price from users_products where user_id = ?');
+        $query -> execute([$userId]);
+        $result = $query -> fetchAll();
+        return $result;
+    }
+
+    
     function addProductToCart($idProduct, $idUser, $productName, $productPrice, $productColor, $productSize, $productCount, $productSingleView, $productImg) {
         $pdo = connection();
         $query = $pdo -> prepare('insert into users_products (user_id, product_id, name, price, color, 
             size, singleView, mainImg, count) 
             values (?, ?, ?, ?, ?, ?, ?, ?, ?)');
         $query -> execute([$idUser, $idProduct, $productName, $productPrice, $productColor, $productSize, $productSingleView, $productImg, $productCount]);
+    }
+
+    function setTotalPrice ($totalPrice, $idUser) {
+        $pdo = connection();
+        $query = $pdo -> prepare('update users_products set total_price = ? where user_id = ?');
+        $query -> execute([$totalPrice, $idUser]);
     }
 
     function getUsersProducts ($idUser) {
@@ -284,6 +299,26 @@ class WorkWithDB {
         $query -> execute();
         $usersOrders = $query -> fetchAll();
         return $usersOrders;
+    }
+
+    function changeStatus($newStatusOfTheOrder, $orderId) {
+        $pdo = connection();
+        $query = $pdo -> prepare("update admin_work set status = ? where id = ?");
+        $query -> execute([$newStatusOfTheOrder, $orderId]);
+    }
+
+    function currentTotalPrice ($userId) {
+        $pdo = connection();
+        $query = $pdo -> prepare("select total_price from users_products where user_id = ?");
+        $query -> execute([$userId]);
+        $result = $query -> fetch();
+        return $result;
+    }
+
+    function changeTotalPrice ($newTotalPrice, $userId) {
+        $pdo = connection();
+        $query = $pdo -> prepare("update users_products set total_price = ? where user_id = ?");
+        $query -> execute([$newTotalPrice, $userId]);
     }
 
 }
