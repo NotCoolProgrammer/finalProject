@@ -278,4 +278,12 @@ class WorkWithDB {
         $query -> execute([$countOfProducts, $totalPrice, $deliveryAddress, $postCode, $deliveryMethod, $recipientName, $recipientSurname, $paymentMethod, $userMobile]);
     }
 
+    function getAllInfoAboutTheOrderFromAdminTable () {
+        $pdo = connection();
+        $query = $pdo -> prepare("select * from admin_work");
+        $query -> execute();
+        $usersOrders = $query -> fetchAll();
+        return $usersOrders;
+    }
+
 }

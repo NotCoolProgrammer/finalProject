@@ -23,7 +23,7 @@
                 <input type="text" placeholder="City" class="shipping__address__form__city" name="city" id="city">
                 <p class="wrong__city">Такого города нет в списке</p>
                 <input type="text" placeholder="Postcode / Zip" class="shipping__address__form__postcode" name="postcode">
-                <p class="wrong__post__code">Неправильно введен почтовый индекс (от 5 цифр) </p>
+                <p class="wrong__post__code">Неверный почтовый индекс (от 5 цифр) </p>
             </form>
         </div>
 

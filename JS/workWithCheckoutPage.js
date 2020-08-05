@@ -54,6 +54,7 @@ function generateStates () {
 }
 
 function fillInTheDataAboutTheOrder (allUsersProducts) {
+    console.log(allUsersProducts);
     let countOfProductsBlock = $('.count__of__products');
     let totalPriceBlock = $('.total__purchase__price');
     let recipientBlockName = $('.recipient__name');
@@ -91,7 +92,8 @@ function fillInTheDataAboutTheOrder (allUsersProducts) {
 
     $('.shipping__address__form__postcode').change(function () {
         let postCode = $('.shipping__address__form__postcode').val();
-        if (postCode.length < 5) {
+        let pr1 = /^[0-9]+$/.test(postCode);
+        if (postCode.length < 5 || pr1 === false) {
             $('.wrong__post__code').css('display', 'block');
             $('.shipping__address__form__postcode').css('margin-bottom', '0px');
         } else {

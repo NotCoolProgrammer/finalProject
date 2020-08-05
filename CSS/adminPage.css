@@ -1,1 +1,49 @@
-/* No CSS *//*# sourceMappingURL=adminPage.css.map */
+.categories {
+  margin-top: 60px;
+}
+
+.categories .order__details, .categories .order__data {
+  text-transform: uppercase;
+  color: #222222;
+  font-family: Lato;
+  text-align: center;
+}
+
+.categories .order__details {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 25px;
+  margin-bottom: 40px;
+}
+
+.categories .order__data {
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 8px;
+}
+
+.categories .order__data p {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.order {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.order .order__card {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 5px;
+}
+
+.order .order__card p {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 20px;
+}
+/*# sourceMappingURL=adminPage.css.map */

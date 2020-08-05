@@ -9,6 +9,11 @@ $singleView = $request -> startsWith($valueOfRequestUri, '/singleProduct/');
 
 
 if ($singleView) {
+    $isAdmin = isAdmin();
+    if ($isAdmin === true) {
+        header('Location: /adminPage');
+        die();
+    }
     $getSingleProduct = new GetSmthWhenInteractingWithDB();
     $path = explode('/', $valueOfRequestUri);
     $productSingleView = $path[2];
@@ -29,4 +34,3 @@ if ($singleView) {
         $request -> generateSingleProduct($product, $sizes, $colors, $images, $user);
     }
 }
-

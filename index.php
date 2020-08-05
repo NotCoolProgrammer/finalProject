@@ -44,10 +44,30 @@ function addUuidToProducts () {
     $DB -> addUuidPathToProduct();
 }
 
+function isAdmin() {
+    $session = returnSession();
+
+    $checkDataFromDB = new GetSmthWhenInteractingWithDB ();
+    $adminsBool = $checkDataFromDB -> checkForAdmins ($session['login'], $session['password']);
+
+    if ($adminsBool === true) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
 addUuidToProducts();
 
 $mainPage = function () {
     $addressOfCssFile = '../CSS/main.css';
+
+    $isAdmin = isAdmin();
+    if ($isAdmin === true) {
+        header('Location: /adminPage');
+        die();
+    }
+    
     $DB = new WorkWithDB();
     $allReviews = json_decode($DB -> getAllReviews(), true);
     require 'HTML/main/main.php';
@@ -55,12 +75,24 @@ $mainPage = function () {
 };
 
 $allProducts = function () {
+    $isAdmin = isAdmin();
+    if ($isAdmin === true) {
+        header('Location: /adminPage');
+        die();
+    }
+
     $addressOfCssFile = '../CSS/allproducts.css';
     require 'HTML/allProducts/allProducts.php';
     die();
 };
 
 $shoppingCart = function () {
+    $isAdmin = isAdmin();
+    if ($isAdmin === true) {
+        header('Location: /adminPage');
+        die();
+    }
+
     $request = new SystemFunctions();
     $DB = new WorkWithDB();
     $valueOfRequestMethod = $request -> serverMethor();
@@ -83,6 +115,12 @@ $shoppingCart = function () {
 };
 
 $checkout = function () {
+    $isAdmin = isAdmin();
+    if ($isAdmin === true) {
+        header('Location: /adminPage');
+        die();
+    }
+
     $session = returnSession();
     $user = $session;
 
@@ -106,6 +144,12 @@ $getProducts = function () {
 };
 
 $account = function () {
+    $isAdmin = isAdmin();
+    if ($isAdmin === true) {
+        header('Location: /adminPage');
+        die();
+    }
+
     $session = returnSession();
     $DB = new WorkWithDB();
     $user = $DB -> findUser($session['login']);
@@ -124,21 +168,18 @@ $handleAuth = function () {
     $login =  filter_var($_POST['login'], FILTER_SANITIZE_STRING);
     $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 
-
     $callTheDbClass = new WorkWithDB();
 
     $checkDataFromDB = new GetSmthWhenInteractingWithDB ();
-    $adminsBool = $checkDataFromDB -> checkForAdmins ($login, $password);
+    $adminsBool = $checkDataFromDB -> checkAdminDataAndAuthData ($login, $password);
     $admin = json_decode($callTheDbClass -> findAdminInfo(), true);
-
-    
-    $user = $callTheDbClass -> findUser($login);
-    
     if ($adminsBool === true) {
         authorizeUser($admin);
         header('Location: /adminPage');
         die();
     }
+    
+    $user = $callTheDbClass -> findUser($login);
 
     if (!is_null($user) && $user['active'] && password_verify($password, $user['password'])) {
         authorizeUser($user);
@@ -201,6 +242,11 @@ $deleteOneProduct = function () {
 };
 
 $editUserPage = function () {
+    $isAdmin = isAdmin();
+    if ($isAdmin === true) {
+        header('Location: /adminPage');
+        die();
+    }
     $session = returnSession();
     $DB = new WorkWithDB();
     $user = $DB -> findUser($session['login']);
@@ -375,6 +421,9 @@ $getSessionOfUser = function () {
 };
 
 $adminPage = function () {
+    $DB = new WorkWithDB();
+    $usersOrders = $DB -> getAllInfoAboutTheOrderFromAdminTable();
+    var_dump($usersOrders);
     $addressOfCssFile = '../CSS/adminPage.css';
     require 'HTML/adminPage/adminPage.php';
     die();
@@ -391,9 +440,10 @@ $transferAnOrderToAnotherStatus = function () {
     $paymentMethod = $_POST['paymentMethod'];
     $session = returnSession();
     $userMobile = $session['mobile'];
+    $userId = $session['id'];
     $DB = new WorkWithDB();
     $DB -> provideInfoAboutOrderToAdmins($countOfProducts, $totalPrice, $deliveryAddress, $postCode, $deliveryMethod, $recipientName, $recipientSurname, $paymentMethod, $userMobile);
-    // $DB -> deleteAllProducts($session['id']);
+    $DB -> deleteAllProducts($userId);
 };
 
 $routes = [

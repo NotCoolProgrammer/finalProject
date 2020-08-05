@@ -27,4 +27,55 @@
             </div>
         </div>
     </header>
+
+    <section class="categories container">
+        <p class="order__details">order details</p>
+        <div class="order__data flex">
+            <p>ФИО Покупателя</p>
+            <p>Количество товаров</p>
+            <p>Общая стоимость покупки</p>
+            <p>Адрес доставки</p>
+            <p>Почтовый индекс</p>
+            <p>Номер телефона</p>
+            <p>Статус заказа</p>
+        </div>
+    </section>
+
+    <section class="order container">
+        <?php for ($i = 0; $i < count($usersOrders); $i++): ?>
+            <div class="order__card flex">
+                <div class="name__surname flex">
+                    <p class="name"><?php echo $usersOrders[$i]['recipientname']?></p>
+                    <p class="surname"><?php echo $order['recipientsurname']?> </p>
+                </div>
+
+                <p class="count__of__products"><?php echo $usersOrders[$i]['countofproducts'] ?></p>
+                <p class="total__price"><?php echo $usersOrders[$i]['totalprice'] ?></p>
+                <p class="delivery__address"><?php echo $usersOrders[$i]['deliveryaddress'] ?></p>
+                <p class="post__code"><?php echo $usersOrders[$i]['postcode'] ?></p>
+                <p class="user__mobile"><?php echo $usersOrders[$i]['usermobile'] ?></p>
+                <div class="order__status">
+                    <div class="status_1">
+                        <input type="radio" name="<?php echo ($i + 1) ?>status" id = '<?php echo ($i + 1) ?>accepted'/>
+                        <label for="<?php echo ($i + 1) ?>accepted">Принят</label>
+                    </div>
+                    <div class="status_2">
+                        <input type="radio" name="<?php echo ($i + 1) ?>status" id ="<?php echo ($i + 1) ?>in__treatment"/>
+                        <label for="<?php echo ($i + 1) ?>in__treatment">В обработке</label>
+                    </div>
+                    <div class="status_3">
+                        <input type="radio" name="<?php echo ($i + 1) ?>status" id = "<?php echo ($i + 1) ?>delivery"/>
+                        <label for="<?php echo ($i + 1) ?>delivery">В пути</label>
+                    </div>
+                    <div class="status_4">
+                        <input type="radio" name="<?php echo ($i + 1) ?>status" id ="<?php echo ($i + 1) ?>delivered"/>
+                        <label for="<?php echo ($i + 1) ?>delivered">Доставлен</label>
+                    </div>
+                </div>
+            </div>
+
+        <?php endfor; ?>
+    </section>
+
+    <a href="/logout">LogOut</a>
 </body>

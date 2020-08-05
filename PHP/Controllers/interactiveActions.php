@@ -82,11 +82,24 @@ class GetSmthWhenInteractingWithDB {
         };
     }
 
+    function checkAdminDataAndAuthData ($login, $pass) {
+        $DB = new WorkWithDB();
+        $adminData = json_decode($DB -> findAdminInfo(), true);
+
+
+        if ($adminData['login'] === $login && password_verify($pass, $adminData['password'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function checkForAdmins ($login, $pass) {
         $DB = new WorkWithDB();
         $adminData = json_decode($DB -> findAdminInfo(), true);
 
-        if ($adminData['login'] === $login && password_verify($pass, $adminData['password'])) {
+
+        if ($adminData['login'] === $login && $adminData['password'] === $pass) {
             return true;
         } else {
             return false;
