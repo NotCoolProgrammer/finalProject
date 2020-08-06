@@ -169,6 +169,7 @@ function positiveAnswer () {
     let text = 'Ваш заказ оформлен. В ближайшее время с вами свяжутся';
     let distanceToLeft = '39%';
     showAnswer(text, distanceToLeft);
+    location.href = '/';
 }
 
 function negativeAnswer () {
@@ -196,7 +197,7 @@ function closeAnswerAfterSomeTime () {
     setTimeout(() => {
         $('.shadow').css('display', 'none');
         $('.answer__block').remove();
-        location.href = '/';
+        // location.href = '/';
     }, 2500);
 }
 
@@ -204,7 +205,7 @@ function closeAnswerAfterClickOnWindow () {
     $('.shadow').on('click', function (e) {
         if (e.target == $('.shadow')[0]) {
             deleteAnswer();
-            location.href = '/';
+            // location.href = '/';
         }
     })
 }

@@ -62,3 +62,23 @@ $color-text: #222222
                     cursor: pointer
                     color: $accent-color
                     transform: scale(1.5)
+                    
+.logout
+    justify-content: flex-end
+    align-items: center
+    margin-top: 50px
+    &__href
+        align-items: center
+        justify-content: center
+        width: 130px
+        height: 38px
+        text-decoration: none
+        background-color: $accent-color
+        color: #ffffff
+        font-size: 15px
+        font-weight: 400
+        letter-spacing: 0.38px
+        transition: color 0.8s, box-shadow 0.5s
+        &:hover
+            color: $color-text
+            box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16)

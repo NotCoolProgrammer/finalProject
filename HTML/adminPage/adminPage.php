@@ -57,19 +57,19 @@
                 <p class="user__mobile"><?php echo $usersOrders[$i]['usermobile'] ?></p>
                 <div class="order__status" data-id ="<?php echo $usersOrders[$i]['id'] ?>">
                     <div class="status_1">
-                        <input type="radio" name="<?php echo ($i + 1) ?>status" id = '<?php echo ($i + 1) ?>accepted' data-text="Принят"/>
+                        <input type="radio" name="<?php echo ($i + 1) ?>status" id = '<?php echo ($i + 1) ?>accepted' data-text="Принят" <?php if ($usersOrders[$i]['status'] === 'Принят') echo 'checked'  ?>/>
                         <label for="<?php echo ($i + 1) ?>accepted"> Принят </label>
                     </div>
                     <div class="status_2">
-                        <input type="radio" name="<?php echo ($i + 1) ?>status" id ="<?php echo ($i + 1) ?>in__treatment" data-text="В обработке"/>
+                        <input type="radio" name="<?php echo ($i + 1) ?>status" id ="<?php echo ($i + 1) ?>in__treatment" data-text="В обработке" <?php if ($usersOrders[$i]['status'] === 'В обработке') echo 'checked'  ?>/>
                         <label for="<?php echo ($i + 1) ?>in__treatment">В обработке</label>
                     </div>
                     <div class="status_3">
-                        <input type="radio" name="<?php echo ($i + 1) ?>status" id = "<?php echo ($i + 1) ?>delivery" data-text="В пути"/>
+                        <input type="radio" name="<?php echo ($i + 1) ?>status" id = "<?php echo ($i + 1) ?>delivery" data-text="В пути" <?php if ($usersOrders[$i]['status'] === 'В пути') echo 'checked'  ?>/>
                         <label for="<?php echo ($i + 1) ?>delivery">В пути</label>
                     </div>
                     <div class="status_4">
-                        <input type="radio" name="<?php echo ($i + 1) ?>status" id ="<?php echo ($i + 1) ?>delivered" data-text="Доставлен"/>
+                        <input type="radio" name="<?php echo ($i + 1) ?>status" id ="<?php echo ($i + 1) ?>delivered" data-text="Доставлен" <?php if ($usersOrders[$i]['status'] === 'Доставлен') echo 'checked'  ?>/>
                         <label for="<?php echo ($i + 1) ?>delivered">Доставлен</label>
                     </div>
                 </div>
@@ -79,9 +79,13 @@
             </div>
 
         <?php endfor; ?>
+
+        <!-- <a class ="logout" href="/logout">LogOut</a> -->
     </section>
 
-    <a href="/logout">LogOut</a>
+    <section class ="logout container flex">'
+         <a class ="logout__href flex" href="/logout">LogOut</a>  
+    </section>
 
     <script src="/JS/workWithAdminPage.js"></script>
 </body>

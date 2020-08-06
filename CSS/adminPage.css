@@ -108,4 +108,41 @@
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
 }
+
+.logout {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+}
+
+.logout__href {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 130px;
+  height: 38px;
+  text-decoration: none;
+  background-color: #f16d7f;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.38px;
+  -webkit-transition: color 0.8s, -webkit-box-shadow 0.5s;
+  transition: color 0.8s, -webkit-box-shadow 0.5s;
+  transition: color 0.8s, box-shadow 0.5s;
+  transition: color 0.8s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
+}
+
+.logout__href:hover {
+  color: #222222;
+  -webkit-box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.16);
+}
 /*# sourceMappingURL=adminPage.css.map */
