@@ -45,6 +45,9 @@ function validateReviewForm () {
         if (comment.length <= 15) {
             $('.warningText').css('display', 'inline-block');
             $('.feedback__form__review__content').css('margin-bottom', '0px');
+        } else if (comment.length > 15) {
+            $('.warningText').css('display', 'none');
+            $('.feedback__form__review__content').css('margin-bottom', '15px');
         }
     
         if (pr1 === true && firstName.length <= 12 && pr2 === true && lastName.length <= 15 && comment.length >= 15) {
