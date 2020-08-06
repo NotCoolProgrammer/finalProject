@@ -30,5 +30,4 @@ function connection () {
         }
     }
     return $pdo;
-
 }
