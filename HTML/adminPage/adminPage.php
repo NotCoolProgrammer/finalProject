@@ -38,6 +38,7 @@
             <p>Почтовый индекс</p>
             <p>Номер телефона</p>
             <p>Статус заказа</p>
+            <p>Удалить заказ</p>
         </div>
     </section>
 
@@ -71,6 +72,9 @@
                         <input type="radio" name="<?php echo ($i + 1) ?>status" id ="<?php echo ($i + 1) ?>delivered" data-text="Доставлен"/>
                         <label for="<?php echo ($i + 1) ?>delivered">Доставлен</label>
                     </div>
+                </div>
+                <div class="delete__order flex" data-id ="<?php echo $usersOrders[$i]['id'] ?>">
+                    <i class="fas fa-times-circle"></i>
                 </div>
             </div>
 

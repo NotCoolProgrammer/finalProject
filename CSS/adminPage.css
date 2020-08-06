@@ -34,7 +34,7 @@
   font-size: 17px;
   font-weight: 500;
   line-height: 20px;
-  width: 163px;
+  width: 142.5px;
 }
 
 .order {
@@ -51,14 +51,16 @@
   padding: 20px 0px;
 }
 
+.order .order__card .name__surname, .order .order__card p, .order .order__card .order__status {
+  width: 142.5px;
+}
+
 .order .order__card .name__surname {
-  width: 163px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
 
 .order .order__card p {
-  width: 163px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -73,15 +75,37 @@
   line-height: 20px;
 }
 
-.order .order__card .order__status {
-  width: 163px;
-}
-
 .order .order__card .order__status input {
   margin-right: 5px;
 }
 
 .order .order__card .order__status .status_1, .order .order__card .order__status .status_2, .order .order__card .order__status .status_3, .order .order__card .order__status .status_4 {
   margin-left: 20px;
+}
+
+.order .order__card .delete__order {
+  width: 142.5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.order .order__card .delete__order i {
+  font-size: 30px;
+  color: #c0c0c0;
+  -webkit-transition: color 0.8s, -webkit-transform 0.6s;
+  transition: color 0.8s, -webkit-transform 0.6s;
+  transition: color 0.8s, transform 0.6s;
+  transition: color 0.8s, transform 0.6s, -webkit-transform 0.6s;
+}
+
+.order .order__card .delete__order i:hover {
+  cursor: pointer;
+  color: #f16d7f;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
 }
 /*# sourceMappingURL=adminPage.css.map */

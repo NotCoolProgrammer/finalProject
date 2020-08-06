@@ -317,8 +317,28 @@ class WorkWithDB {
 
     function changeTotalPrice ($newTotalPrice, $userId) {
         $pdo = connection();
-        $query = $pdo -> prepare("update users_products set total_price = ? where user_id = ?");
+        $query = $pdo -> prepare("update users_products set total_price_with_discount = ? where user_id = ?");
         $query -> execute([$newTotalPrice, $userId]);
+    }
+
+    function returnTotalPriceOfProducts ($userId, $totalPrice) {
+        $pdo = connection();
+        $query = $pdo -> prepare("update users_products set total_price_with_discount = ? where user_id = ?");
+        $query -> execute([$totalPrice, $userId]);
+    }
+
+    function getTotalPrice ($userId) {
+        $pdo = connection();
+        $query = $pdo -> prepare("select total_price from users_products where user_id = ?");
+        $query -> execute([$userId]);
+        $result = $query -> fetch();
+        return $result;
+    }
+
+    function deleteOrder ($orderId) {
+        $pdo = connection();
+        $query = $pdo -> prepare("delete from admin_work where id = ?");
+        $query -> execute([$orderId]);
     }
 
 }

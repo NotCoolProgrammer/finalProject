@@ -3,8 +3,6 @@
 namespace theBrand;
 
 class GetSmthWhenInteractingWithDB {
-
-    //нужен нормальный запрос на получение товара (не использовать функцию getAllProductsFromDB)
     function getProducts () {
         $product = new WorkWithDB();
         $products = $product -> getAllInfoAboutAllProducts();

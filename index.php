@@ -235,6 +235,10 @@ $authorizedUser = function () {
 };
 
 $logout = function () {
+    $DB = new WorkWithDB();
+    $user = returnSession();
+    $DB -> deleteCoupon($user['id']);
+    $DB -> deleteAllProducts($user['id']);
     session_destroy();
     header('Location: /');
     die();
@@ -394,10 +398,6 @@ $addCouponInShoppingCart = function () {
     $DB -> changeTotalPrice($newTotalPrice, $user['id']);
 };
 
-// $temp = function () {
-
-// };
-
 $getInfoAboutCoupons = function () {
     $DB = new WorkWithDB();
     $user = returnSession();
@@ -409,6 +409,8 @@ $deleteCoupon = function () {
     $DB = new WorkWithDB();
     $user = returnSession();
     $DB -> deleteCoupon($user['id']);
+    $totalPrice = $DB -> getTotalPrice($user['id']);
+    $DB -> returnTotalPriceOfProducts($user['id'], $totalPrice['total_price']);
 };
 
 $sendEmail = function () {
@@ -454,7 +456,7 @@ $adminPage = function () {
 
 $transferAnOrderToAnotherStatus = function () {
     $countOfProducts = filter_var($_POST['countOfProducts'], FILTER_SANITIZE_NUMBER_INT);
-    $totalPrice = filter_var($_POST['totalPrice'], FILTER_SANITIZE_NUMBER_INT);
+    $totalPrice = $_POST['totalPrice'];
     $deliveryAddress = filter_var($_POST['deliveryAddress'], FILTER_SANITIZE_STRING);
     $postCode = filter_var($_POST['postCode'], FILTER_SANITIZE_NUMBER_INT);
     $deliveryMethod = filter_var($_POST['deliveryMethod'], FILTER_SANITIZE_STRING);
@@ -467,6 +469,7 @@ $transferAnOrderToAnotherStatus = function () {
     $DB = new WorkWithDB();
     $DB -> provideInfoAboutOrderToAdmins($countOfProducts, $totalPrice, $deliveryAddress, $postCode, $deliveryMethod, $recipientName, $recipientSurname, $paymentMethod, $userMobile);
     $DB -> deleteAllProducts($userId);
+    $DB -> deleteCoupon($userId);
 };
 
 $changeStatusOfTheOrder = function () {
@@ -474,6 +477,13 @@ $changeStatusOfTheOrder = function () {
     $newStatusOfTheOrder = filter_var($_POST['statusText'], FILTER_SANITIZE_STRING);
     $orderId = filter_var($_POST['orderId'], FILTER_SANITIZE_NUMBER_INT);
     $DB -> changeStatus($newStatusOfTheOrder, $orderId);
+};
+
+$deleteOrder = function () {
+    $DB = new WorkWithDB();
+    $orderId = $_POST['orderId'];
+    echo json_encode($orderId);
+    $DB -> deleteOrder ($orderId);
 };
 
 $routes = [
@@ -512,7 +522,7 @@ $routes = [
     '/adminPage' => $adminPage,
     '/transferAnOrderToAnotherStatus' => $transferAnOrderToAnotherStatus,
     '/changeStatusOfTheOrder' => $changeStatusOfTheOrder,
-    // '/temp' => $temp
+    '/deleteOrder' => $deleteOrder,
 ];
 
 function go ($routes, $valueOfRequestUri) {

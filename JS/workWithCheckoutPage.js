@@ -63,11 +63,15 @@ function fillInTheDataAboutTheOrder (allUsersProducts) {
     let userName = $('.shipping__address__form__name').val();
     let userSurname = $('.shipping__address__form__surname').val();
     let countOfProducts = 0;
-    let totalPrice = 0;
+    let totalPrice;
+    if (allUsersProducts[0].total_price_with_discount === null) {
+        totalPrice = allUsersProducts[0].total_price;
+    } else if (allUsersProducts[0].total_price_with_discount !== null) {
+        totalPrice = Number(allUsersProducts[0].total_price_with_discount);
+    }
 
     for (let i = 0; i < allUsersProducts.length; i++) {
         countOfProducts += Number(allUsersProducts[i].count);
-        totalPrice += Number(allUsersProducts[i].price) * Number(allUsersProducts[i].count);
     }
 
     $('.total__purchase__price').css('padding-right', 0);
@@ -192,6 +196,7 @@ function closeAnswerAfterSomeTime () {
     setTimeout(() => {
         $('.shadow').css('display', 'none');
         $('.answer__block').remove();
+        location.href = '/';
     }, 2500);
 }
 
@@ -199,6 +204,7 @@ function closeAnswerAfterClickOnWindow () {
     $('.shadow').on('click', function (e) {
         if (e.target == $('.shadow')[0]) {
             deleteAnswer();
+            location.href = '/';
         }
     })
 }
@@ -207,3 +213,7 @@ function deleteAnswer () {
     $('.shadow').css('display', 'none');
     $('.answer__block').remove();
 }
+
+// function deleteUserCoupon() {
+//     $.post('/')
+// }

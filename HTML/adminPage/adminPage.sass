@@ -23,7 +23,7 @@ $color-text: #222222
             font-size: 17px
             font-weight: 500
             line-height: 20px
-            width: 163px
+            width: 142.5px
 
 .order
     align-items: center
@@ -31,11 +31,13 @@ $color-text: #222222
     .order__card
         justify-content: space-between
         padding: 20px 0px
+        .name__surname, & p, .order__status
+            width: 142.5px
         .name__surname
-            width: 163px
+            // width: 142.5px
             flex-wrap: wrap
         & p
-            width: 163px
+            // width: 142.5px
             display: flex
             justify-content: center
             align-items: center
@@ -43,8 +45,20 @@ $color-text: #222222
             font-weight: 500
             line-height: 20px
         .order__status
-            width: 163px
+            // width: 142.5px
             & input
                 margin-right: 5px
             .status_1, .status_2, .status_3, .status_4
                 margin-left: 20px
+        .delete__order
+            width: 142.5px
+            justify-content: center
+            align-items: center
+            & i
+                font-size: 30px
+                color: #c0c0c0
+                transition: color 0.8s, transform 0.6s
+                &:hover
+                    cursor: pointer
+                    color: $accent-color
+                    transform: scale(1.5)
