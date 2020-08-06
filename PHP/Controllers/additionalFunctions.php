@@ -33,7 +33,7 @@ class additionalFunctions {
         }
     
         // You should also check filesize here.
-        if ($image['size'] > 1000000) {
+        if ($image['size'] > 10000000) {
             throw new \RuntimeException('Exceeded filesize limit.');
         }
     
