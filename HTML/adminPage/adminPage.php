@@ -11,10 +11,10 @@
     <link rel="icon" href="../img/logo.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/74db1e8a9f.js" crossorigin="anonymous"></script>
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="../bower_components/jquery-ui/themes/base/autocomplete.css">
-    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/autocomplete.css">
+    <script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
 
     <title>The BRAND</title>
 </head>
