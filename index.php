@@ -213,12 +213,15 @@ $registerUser = function () {
     $password = filter_var($_POST['password1'], FILTER_SANITIZE_STRING);
 
     if (!empty($_FILES['image'])) {
-        $folder = '/home/sasha/desktop/finalProject/uploads';
+        $request = new SystemFunctions();
+        $uploadFolder = $request -> uploadFolder();
+        $serverName = $request -> serverName();
+        $folder = $uploadFolder;
         $additionalFunction = new additionalFunctions();
         $file_path = $additionalFunction -> upload_image($_FILES['image'], $folder);
         $file_path_exploded = explode('/', $file_path);
         $filename = $file_path_exploded[count($file_path_exploded) - 1];
-        $file_url = 'http://thebrand.com/uploads/'.$filename;
+        $file_url = "//$serverName/uploads/".$filename;
     }
 
     $register = new CRUD();
@@ -283,12 +286,15 @@ $editUser = function () {
 
 
     if (!empty($_FILES['image'])) {
-        $folder = '/home/sasha/desktop/finalProject/uploads';
+        $request = new SystemFunctions();
+        $uploadFolder = $request -> uploadFolder();
+        $serverName = $request -> serverName();
+        $folder = $uploadFolder;
         $additionalFunction = new additionalFunctions();
         $file_path = $additionalFunction -> upload_image($_FILES['image'], $folder);
         $file_path_exploded = explode('/', $file_path);
         $filename = $file_path_exploded[count($file_path_exploded) - 1];
-        $file_url = 'http://thebrand.com/uploads/'.$filename;
+        $file_url = "//$serverName/uploads/".$filename;
     }
 
     $processOfEditingUser = new CRUD();

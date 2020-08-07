@@ -33,4 +33,15 @@ class SystemFunctions {
     function returnSession () {
         return $_SESSION['currentUser'];
     }
+
+    function uploadFolder () {
+        $documentRoot = $_SERVER['DOCUMENT_ROOT'];
+        $uploadFolder = $documentRoot.'/uploads';
+        return $uploadFolder;
+    }
+
+    function serverName () {
+        $serverName = $_SERVER['HTTP_HOST'];
+        return $serverName;
+    }
 }
