@@ -6,7 +6,7 @@ use LengthException;
 
 class CRUD {
     function createUser ($firstName, $lastName, $login, $mobile, $password, $file_url) {
-        if (mb_strlen($password) < 5) {
+        if (\mb_strlen($password) < 5) {
             throw new LengthException('invalid password');
         }
 
@@ -18,7 +18,7 @@ class CRUD {
     }
 
     function editUser ($userId, $login, $mobile, $password2, $file_url) {
-        if (mb_strlen($password2) < 5) {
+        if (\mb_strlen($password2) < 5) {
             throw new LengthException('invalid password');
         }
 
