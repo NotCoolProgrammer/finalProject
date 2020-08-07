@@ -25,6 +25,9 @@
 
     "require": {
         "atk4/dsql": "^2.0",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "ext-pgsql": "*"
     }
 }
